@@ -1,0 +1,20 @@
+{
+  "name": "card-counting-blackjack",
+  "version": "1.0.0",
+  "description": "This application is a group calendar that shares visibility of every members' schedule. This enables users to create events for a team, and improve scheduling between users from the enhanced visibility.",
+  "main": "index.js",
+
+  "scripts": {
+    "start": "node server/server.js --ignore client",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
