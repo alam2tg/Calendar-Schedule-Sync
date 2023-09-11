@@ -12,12 +12,13 @@ const Blackjack = () => {
                 <h2>Home</h2>
             </Link>
 
-            <section className="game-container outline">
-                <div className="outline count-container">
+            <section className="game container">
+
+                <div className="outline count container">
                     <h3>Count: </h3>
                 </div>
 
-                <div className="score-container">
+                <div className="score container">
                     <div className="outline wins">
                         <h3>Wins:</h3>
                     </div>
@@ -37,7 +38,7 @@ const Blackjack = () => {
                     </button>
                 </div>
 
-                <div className="hit-stand-container">
+                <div className="hit-stand container">
                     <div className="outline hit">
                         <button className="hit-button">
                             <h3>Hit</h3>
@@ -50,7 +51,7 @@ const Blackjack = () => {
                     </div>
                 </div>
 
-                <div className="outline dealer-cards-container">
+                <div className="outline dealer-cards container">
                     <h3>Dealer Cards Container</h3>
                 </div>
                 <div className="outline player-cards">

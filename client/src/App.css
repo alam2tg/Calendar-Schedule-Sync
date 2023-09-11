@@ -17,10 +17,6 @@ body {
   margin: 0;
   padding: 0;
   background: var(--dark);
-  display: flex;
-  flex-direction: column;
-  justify-content: center top;
-  align-items: center;
   width: 100%;
   padding-bottom: 20px;
 }
