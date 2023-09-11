@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 const LandingPage = () => {
     return (
         <div>
-            <h1>Welcome to the Landing Page</h1>
+            <h1 id="Landing-Header">Welcome to the Landing Page</h1>
             <Link
             to="/signup"
             >

@@ -1,15 +1,16 @@
 import { Outlet } from "react-router-dom"
-import {
-  ApolloClient,
-  ApolloProvider
-} from "@apollo/client"
+// import {
+//   ApolloClient,
+//   ApolloProvider
+// } from "@apollo/client"
+import "./App.css";
 
 function App() {
-  
-
   return (
     <>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </>
   )
 }

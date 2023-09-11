@@ -22,19 +22,24 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <LandingPage />
-      }, {
+      }, 
+      {
         path: '/login',
         element: <LoginPage/>
-      }, {
+      }, 
+      {
         path: '/signup',
         element: <SignupPage/>
-      }, {
+      }, 
+      {
         path: '/home',
         element: <HomePage/>
-      }, {
+      }, 
+      {
         path: '/blackjack',
         element: <Blackjack/>
-      }, {
+      }, 
+      {
         path: '/tutorial',
         element: <Tutorial/>
       }
