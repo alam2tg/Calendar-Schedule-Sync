@@ -1,8 +1,18 @@
+// let dealerSum = 0;
+// let yourSum = 0;
 
+// let dealerAceCount = 0;
+// let yourAceCount = 0; 
+
+// let hidden;
 
 var deck;
 
-window.onload = buildDeck();
+// let canHit = true; 
+window.onload = function() {
+    buildDeck();
+    shuffleDeck();
+} 
 
 // create the deck and match each type of card to their number value
 // so from A-C to K-C, A-D to K-D, A-H to K-H and A-S to K-S
@@ -17,4 +27,15 @@ function buildDeck() {
         }
     }
     
+}
+
+
+// create a function to shuffle the deck and get a random card
+function shuffleDeck() {
+    for (let i = 0; i < deck.length; i++) {
+        let j = Math.floor(Math.random() * deck.length);
+        let temp = deck[i];
+        deck[i] = deck[j];
+        deck[j] = temp;
+    }
 }
