@@ -9,6 +9,8 @@ let yourSum = 0;
 let dealerAceCount = 0;
 let yourAceCount = 0; 
 
+//need boolean to dictate when the user can be given an additional card when the hit button is clicked
+let canHit = true;
 
 // keep track of hidden card of the dealer
 let hidden;
@@ -92,9 +94,41 @@ function startGame() {
          //append the card
          document.getElementById("").append(cardImg);
     }
+
+    document.getElementById("").addEventListener("click", hit)
     
     
 }
+
+
+// functionality for the hit button
+function hit(){
+    if (!canHit) {
+        return;
+    }
+    // create img tag 
+    let cardImg = document.createElement("img");
+    // get card from the deck
+    let card = deck.pop();
+    // set the src of image i.e ./cards/5-D.png
+    cardImg.src = "./cards" + card + ".png";
+    yourSum += getValue(card);
+    yourAceCount += checkAce(card);
+    //append the card
+    document.getElementById("").append(cardImg);
+    
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 //functionality for when the user stands
