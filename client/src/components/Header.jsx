@@ -6,8 +6,11 @@ import '../styles/header.css'
 function Header () {
     return (
         <div className="header-container">
-            <h1>Blackjack Page Header</h1>
-            <h3>Logout</h3>
+            <a href="/home">Home</a>
+            <a href="/blackjack">Blackjackpage</a>
+            <a href="/login">login</a>
+            <a href="/signup">signup</a>
+            <button  onClick={''}>Logout</button>
         </ div>
     );
 }

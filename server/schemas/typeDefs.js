@@ -1,9 +1,10 @@
 const typeDefs = `
   type User {
-    _id: ID
+    _id: ID!
     username: String
     email: String
-    password: String
+    win: Int
+    loss: Int   
   }
   
   type Auth {
@@ -13,14 +14,16 @@ const typeDefs = `
 
   type Query {
     users: [User]
-    user(username: String!): User
+    user: User
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addWin(win: Int!): User
+    addLoss(loss: Int!): User
   }
   
   `;
 
-  module.exports = typeDefs;
+module.exports = typeDefs;
