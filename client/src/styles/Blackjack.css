@@ -122,7 +122,24 @@ button {
     background-color: yellow;
 }
 
+#hit-button:hover {
+    background-color: var(--cyanHover);
+    box-shadow: 5px 5px 5px var(--light);
+
+}
+
+#stand-button:hover {
+    background-color: var(--redHover);
+    box-shadow: 5px 5px 5px var(--light);
+}
+
+#deal-button:hover {
+    background-color: var(--yellowHover);
+    box-shadow: 5px 5px 5px var(--light);
+}
+
 #blackjack-title {
     text-align:center;
+    
 }
 
