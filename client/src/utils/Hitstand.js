@@ -17,8 +17,6 @@ let hidden;
 
 let deck;
 
-// varriable to allow the user to draw a card while their total sum is less than or equal to 21
-//var canHit = true;
 
 
 // on window load we need the deck to be built
@@ -41,9 +39,7 @@ function cardContainer() {
             // push each card to the deck array
             deck.push(values[j] + "-" + types[i]);
         }
-    }
-    // console.log(deck);
-    
+    } 
 }
 
 
@@ -55,8 +51,6 @@ function shuffleCards() {
         deck[i] = deck[j];
         deck[j] = temp;
     }
-
-    console.log(deck);
 }
 
 

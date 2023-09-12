@@ -1,6 +1,8 @@
 //Signup page
+
 import {Link} from 'react-router-dom';
 import '../styles/Signup.css';
+
 import { useMutation } from '@apollo/client'
 import { ADD_USER } from '../utils/mutations'
 

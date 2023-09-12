@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import App from './App.jsx'
 import LandingPage from './pages/Landing.jsx'
-import LoginPage from './pages/Login.jsx'
-import SignupPage from './pages/Signup.jsx'
+//import LoginPage from './components/Login.jsx'
+//import SignupPage from './components/Signup.jsx'
 import HomePage from './pages/Home.jsx'
 import Blackjack from './pages/Blackjack.jsx'
 import Tutorial from './pages/Tutorial.jsx'
@@ -26,14 +26,14 @@ const router = createBrowserRouter([
         index: true,
         element: <LandingPage />
       }, 
-      {
-        path: '/login',
-        element: <LoginPage/>
-      }, 
-      {
-        path: '/signup',
-        element: <SignupPage/>
-      }, 
+      // {
+      //   path: '/login',
+      //   element: <LoginPage/>
+      // }, 
+      // {
+      //   path: '/signup',
+      //   element: <SignupPage/>
+      // }, 
       {
         path: '/home',
         element: <HomePage/>
