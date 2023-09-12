@@ -25,7 +25,7 @@ let deck;
 window.onload = function() {
     cardContainer();
     shuffleCards();
-    startGame();
+    playBlackjack();
 } 
 
 // create the deck and match each type of card to their number value
@@ -42,6 +42,7 @@ function cardContainer() {
             deck.push(values[j] + "-" + types[i]);
         }
     }
+    // console.log(deck);
     
 }
 
@@ -54,10 +55,12 @@ function shuffleCards() {
         deck[i] = deck[j];
         deck[j] = temp;
     }
+
+    console.log(deck);
 }
 
 
-function startGame() {
+function playBlackjack() {
     // remove the card from the end of the array and make it the hidden card for the dealer
     hidden = deck.pop();
     // increment dealerSum depending on the value of the hidden card
@@ -73,8 +76,8 @@ function startGame() {
         let cardImg = document.createElement("img");
         // get card from the deck
         let card = deck.pop();
-        // set the src of image i.e ./cards/5-D.png
-        cardImg.src = "./cards/" + card + ".png";
+        // set the src of image i.e ./cards/5-D.png   
+        cardImg.src = "./cards/" + card + ".png"; // 5-D.png
         dealerSum += getValue(card);
         dealerAceCount += checkAce(card);
         //append the card
@@ -144,7 +147,7 @@ function stand() {
     userSum = reduceAce(userSum, userAceCount);
 
     canHit = false;
-    document.getElementById("hidden").src = "./cards/" + hidden + ".png";
+    document.getElementById("").src = "./cards/" + hidden + ".png";
 
 
     let message = "";
@@ -213,10 +216,10 @@ function checkAce(card) {
 
 
 // reduce total sum by changed ace number from 11 to 1 as many times as possible
-function reduceAce(playerSum, playerAceCount) {
-    while (playerSum > 21 && playerAceCount > 0) {
-        playerSum -= 10;
-        playerAceCount -= 1;
+function reduceAce(userSum, userAceCount) {
+    while (userSum > 21 && userAceCount > 0) {
+        userSum -= 10;
+        userAceCount -= 1;
     }
-    return playerSum;
+    return userSum;
 }
