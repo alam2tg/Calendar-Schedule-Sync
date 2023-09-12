@@ -2,14 +2,14 @@
 let dealerSum = 0;
 
 // keep track of total card point value for the user
-let yourSum = 0;
+let userSum = 0;
 
 
 // keep track of how many aces dealer and user has
 let dealerAceCount = 0;
-let yourAceCount = 0; 
+let userAceCount = 0; 
 
-//need boolean to dictate when the user can be given an additional card when the hit button is clicked
+//need boolean to dictate when the user can be given an additional card when the hit button is clicked and userSum is <=21
 let canHit = true;
 
 // keep track of hidden card of the dealer
@@ -23,15 +23,15 @@ let deck;
 
 // on window load we need the deck to be built
 window.onload = function() {
-    buildDeck();
-    shuffleDeck();
+    cardContainer();
+    shuffleCards();
     startGame();
 } 
 
 // create the deck and match each type of card to their number value
 // so from A-C to K-C, A-D to K-D, A-H to K-H and A-S to K-S
-function buildDeck() {
-    let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]; // A-C, 2-D, 3-H
+function cardContainer() {
+    let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]; 
     let types = ["C", "D", "H", "S"];
     deck = [];
     
@@ -47,7 +47,7 @@ function buildDeck() {
 
 
 // create a function to shuffle the deck and get a random card
-function shuffleDeck() {
+function shuffleCards() {
     for (let i = 0; i < deck.length; i++) {
         let j = Math.floor(Math.random() * deck.length);
         let temp = deck[i];
@@ -60,6 +60,7 @@ function shuffleDeck() {
 function startGame() {
     // remove the card from the end of the array and make it the hidden card for the dealer
     hidden = deck.pop();
+    // increment dealerSum depending on the value of the hidden card
     dealerSum += getValue(hidden);
     // check to see if the hidden card is an ace
     dealerAceCount += checkAce(hidden);
@@ -73,7 +74,7 @@ function startGame() {
         // get card from the deck
         let card = deck.pop();
         // set the src of image i.e ./cards/5-D.png
-        cardImg.src = "./cards" + card + ".png";
+        cardImg.src = "./cards/" + card + ".png";
         dealerSum += getValue(card);
         dealerAceCount += checkAce(card);
         //append the card
@@ -89,13 +90,15 @@ function startGame() {
          let card = deck.pop();
          // set the src of image i.e ./cards/5-D.png
          cardImg.src = "./cards" + card + ".png";
-         yourSum += getValue(card);
-         yourAceCount += checkAce(card);
+         userSum += getValue(card);
+         userAceCount += checkAce(card);
          //append the card
          document.getElementById("").append(cardImg);
     }
 
     document.getElementById("").addEventListener("click", hit)
+    document.getElementById("").addEventListener("click", stand)
+    
     
     
 }
@@ -112,10 +115,14 @@ function hit(){
     let card = deck.pop();
     // set the src of image i.e ./cards/5-D.png
     cardImg.src = "./cards" + card + ".png";
-    yourSum += getValue(card);
-    yourAceCount += checkAce(card);
+    userSum += getValue(card);
+    userAceCount += checkAce(card);
     //append the card
     document.getElementById("").append(cardImg);
+
+    if (reduceAce(userSum, userAceCount) > 21) {
+        canHit = false;
+    }
     
 }
 
@@ -132,30 +139,37 @@ function hit(){
 
 
 //functionality for when the user stands
-// function stand() {
-//     // dealerSum = reduceAce(dealerSum, dealerAceCount);
-//     // yourSum = reduceAce(yourSum, yourAceCount);
+function stand() {
+    dealerSum = reduceAce(dealerSum, dealerAceCount);
+    userSum = reduceAce(userSum, userAceCount);
+
+    canHit = false;
+    document.getElementById("hidden").src = "./cards/" + hidden + ".png";
 
 
-//     let message = "";
-//     if (yourSum > 21) {
-//         message = "You Lose!";
-//     }
-//     else if (dealerSum > 21) {
-//         message = "You win!";
-//     }
-//     //both you and dealer <= 21
-//     else if (yourSum == dealerSum) {
-//         message = "Tie!";
-//     }
-//     else if (yourSum > dealerSum) {
-//         message = "You Win!";
-//     }
-//     else if (yourSum < dealerSum) {
-//         message = "You Lose!";
-//     }
+    let message = "";
+    if (userSum > 21) {
+        message = "You Lose!";
+    }
+    else if (dealerSum > 21) {
+        message = "You win!";
+    }
+    //both you and dealer <= 21
+    else if (userSum == dealerSum) {
+        message = "Tie!";
+    }
+    else if (userSum > dealerSum) {
+        message = "You Win!";
+    }
+    else if (userSum < dealerSum) {
+        message = "You Lose!";
+    }
 
-// }
+    document.getElementById("").innerText = message;
+    document.getElementById("").innerText = dealerSum;
+    document.getElementById("").innerText = userSum;
+
+}
 
 
 
@@ -170,7 +184,9 @@ function hit(){
 
 
 function getValue(card) {
+    // i.e split method allows 5-D to give us an array ["5", "D"]
     let data = card.split("-");
+    // the first index of that array is the value
     let value = data[0];
 
 
@@ -196,11 +212,11 @@ function checkAce(card) {
 }
 
 
-
-// function reduceAce(playerSum, playerAceCount) {
-//     while (playerSum > 21 && playerAceCount > 0) {
-//         playerSum -= 10;
-//         playerAceCount -= 1;
-//     }
-//     return playerSum;
-// }
+// reduce total sum by changed ace number from 11 to 1 as many times as possible
+function reduceAce(playerSum, playerAceCount) {
+    while (playerSum > 21 && playerAceCount > 0) {
+        playerSum -= 10;
+        playerAceCount -= 1;
+    }
+    return playerSum;
+}
