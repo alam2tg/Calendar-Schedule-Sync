@@ -34,9 +34,9 @@ const Blackjack = () => {
     window.onload = function() {
         cardContainer();
         shuffleCards();
-        playBlackjack();
+        // playBlackjack();
     } 
-
+    
     // create the deck and match each type of card to their number value
     // so from A-C to K-C, A-D to K-D, A-H to K-H and A-S to K-S
     function cardContainer() {
@@ -86,7 +86,7 @@ const Blackjack = () => {
             dealerSum += getValue(card);
             dealerAceCount += checkAce(card);
             //append the card
-            document.getElementById("").append(cardImg);
+            document.getElementById("dealer-cards").append(cardImg);
         }
 
 
@@ -101,7 +101,7 @@ const Blackjack = () => {
             userSum += getValue(card);
             userAceCount += checkAce(card);
             //append the card
-            document.getElementById("").append(cardImg);
+            document.getElementsByClassName("").append(cardImg);
         }
 
         // document.getElementById("hit-button").addEventListener("click", hit)
@@ -130,7 +130,7 @@ const Blackjack = () => {
             canHit = false;
         }
 
-        console.log("it works");
+       
         
     }
     //functionality for when the user stands
@@ -144,27 +144,27 @@ const Blackjack = () => {
 
         let message = "";
         if (userSum > 21) {
-            message = "You Lose!";
+            message = "Uh Oh, You bust!";
         }
         else if (dealerSum > 21) {
-            message = "You win!";
+            message = "Congratulations, You Win!";
         }
         //both you and dealer <= 21
         else if (userSum == dealerSum) {
-            message = "Tie!";
+            message = "Stalemate!";
         }
         else if (userSum > dealerSum) {
-            message = "You Win!";
+            message = "Congratulations, You Win!";
         }
         else if (userSum < dealerSum) {
-            message = "You Lose!";
+            message = "Uh Oh, You Lose!";
         }
 
         document.getElementById("").innerText = message;
         document.getElementById("").innerText = dealerSum;
         document.getElementById("").innerText = userSum;
 
-        console.log("it stands");
+    
     }
 
     function getValue(card) {
@@ -241,13 +241,14 @@ const Blackjack = () => {
                         <button id="stand-button" onClick={stand}><h3>Stand</h3></button>
                     </div>
                     <div>
-                        <button id="deal-button"><h3>Deal New Hand</h3></button>
+                        <button id="deal-button" onClick={playBlackjack}><h3>Deal New Hand</h3></button>
                     </div>
                 </div>
 
 
                 <div className="outline dealer-cards-container">
                     <h3>Dealer Cards Container</h3>
+                    <div className="dealer-cards"></div>
                 </div>
                 <div className="outline player-cards-container">
                     <h3>Player Cards Container</h3>
