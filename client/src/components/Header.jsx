@@ -2,7 +2,7 @@
 
 // import { Link } from 'react-router-dom'
 import '../styles/header.css'
-
+// add onClick to  logout button
 function Header () {
     return (
         <div className="header-container">
@@ -10,7 +10,7 @@ function Header () {
             <a href="/blackjack">Blackjackpage</a>
             <a href="/login">login</a>
             <a href="/signup">signup</a>
-            <button  onClick={''}>Logout</button>
+            <button>Logout</button>
         </ div>
     );
 }

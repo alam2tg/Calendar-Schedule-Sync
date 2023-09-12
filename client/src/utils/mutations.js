@@ -23,3 +23,20 @@ mutation  login($email: String!, $password: String!) {
     }
 }
 `
+export const ADD_WIN = gql`
+mutation addWin($win: Int!) {
+  addWin(win: $win) {
+    username
+    win
+  }
+}
+`
+
+export const ADD_LOSS = gql`
+mutation addLoss($loss: Int!) {
+  addLoss(loss: $loss) {
+    username
+    loss
+  }
+}
+`
