@@ -1,6 +1,7 @@
 //tutorial page
 
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import '../styles/Tutorial.css';
 
 const Tutorial = () => {
     return (

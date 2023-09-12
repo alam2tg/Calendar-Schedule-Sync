@@ -4,6 +4,7 @@
 // As a user, when I click the start button the blackjack page is rendered
 
 import {Link} from 'react-router-dom'
+import '../styles/Home.css'
 
 const HomePage = () => {
     return (
