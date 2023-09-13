@@ -585,7 +585,7 @@ const Blackjack = () => {
 
                 <div className="count-container">
 					<div className="outline running-count-container">
-						<h3>Running Count: </h3>
+						<h3>Running Count: {userCount}</h3>
 					</div>
 					<div className="outline deck-count-container">
 						<h3>Cards in Deck: </h3>
@@ -619,19 +619,19 @@ const Blackjack = () => {
 
                 <div className="outline dealer-cards-container">
 
-                    <h3>Dealer</h3>
+                    {/* <h3>Dealer</h3>
 
 					<div className="dealer-card">
                         <img id={cards.name} src={cards.image}></img>
                     </div>
                 </div>
                 <div className="outline player-cards-container">
-                    <h3>Player</h3>
+                    <h3>Player</h3> */}
 
-                    <h3>Dealer Cards Container</h3>
+                    <h3>Dealer</h3>
                     <div className="dealer-card">
-						{dealersHand.map((card) => (
-							<img key={card.name} src={deck.image}/>
+						{dealersHand.map(() => (
+							<img key={deck.name} src={deck.image}/>
 							// <p key={card.name}>{card.name}</p>
 							))}
 
@@ -640,8 +640,8 @@ const Blackjack = () => {
                 <div className="outline player-cards-container">
                     <h3>Player</h3>
                     <div className="player-cards">
-						{usersHand.map((card) => (
-							<p key={card.name}>{card.name}</p>
+						{usersHand.map(() => (
+							<p key={deck.name}>{deck.image}</p>
 							// <img key={card.name} src={card.image}/>
 						))}
                     </div>
