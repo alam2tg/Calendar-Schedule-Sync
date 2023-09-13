@@ -324,7 +324,6 @@ const Blackjack = () => {
     // keep track of total card point value for the user
     let userSum = 0;
 
-
     // keep track of how many aces dealer and user has
     let dealerAceCount = 0;
     let userAceCount = 0; 
@@ -334,7 +333,6 @@ const Blackjack = () => {
 
     // keep track of hidden card of the dealer
     let hidden;
-
     let deck;
 
     // on window load we need the deck to be built
@@ -349,7 +347,7 @@ const Blackjack = () => {
     function cardContainer() {
         let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]; 
         let types = ["C", "D", "H", "S"];
-        deck = [];
+        deck = [card];
         
         // double for loop to loop through both values and types array
         for (let i = 0; i < types.length; i++) {
@@ -410,6 +408,17 @@ const Blackjack = () => {
 
         // document.getElementById("hit-button").addEventListener("click", hit)
         // document.getElementById("stand-button").addEventListener("click", stand)
+    }
+
+    function dealNewHand() {
+        // deal one card to player face up, one card to dealer face down, 2nd card to player, 2nd card to dealer face up.
+        let playerCard1;
+        let dealerCard1;
+        let playerCard2;
+        let dealerCard2;
+
+        //if statement that only allows dealing new hand when no game is active
+
     }
     // functionality for the hit button
     function hit(){
@@ -545,7 +554,8 @@ const Blackjack = () => {
 
                 <div className="outline dealer-cards-container">
                     <h3>Dealer Cards Container</h3>
-                    <div className="dealer-cards">
+                    <div className="dealer-card">
+
                         <img id={card.name} src={card.image}></img>
                     </div>
                 </div>

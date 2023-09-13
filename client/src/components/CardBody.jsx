@@ -1,12 +1,14 @@
-function Card(props) {
+// create CardBody using props
 
+export default function CardBody (props) {
 	return (
-		<div className="card" id={props.card.name}>
+		<div className="deal-player-card">
 			<img className="card-img" 
-			src="../images"
-			alt={props.card.name}></img>
+			src={props.image} 
+			id={props.name}></img>
+			<data value={props.value}></data>
 		</div>
 	)
 }
 
-export default Card;
+//Card function cannot be read because of props... 
