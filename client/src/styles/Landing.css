@@ -2,9 +2,9 @@
 /* Style for the whole landing page container */
 .landing-page {
   width:100%;
-  min-width:70vw;
+  min-width:90vw;
   height: 100%;
-  background-color: var(--green);
+  background-color: var(--red);
   padding: 20px;
   top: 50px;
 }
@@ -31,6 +31,13 @@
   color: #fff; /* Set your desired link text color */
   font-weight: bold;
   font-size: 18px;
+}
+
+.content {
+  width:100%;
+  min-width:90vw;
+  height: 100%;
+  text-align: center;
 }
 
 /* Style for the title */
