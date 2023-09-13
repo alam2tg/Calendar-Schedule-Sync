@@ -9,19 +9,19 @@ import '../styles/Home.css'
 const HomePage = () => {
     return (
       <div className="home-page">
-        <nav className="navbar">
-          <ul className="nav-list">
-            <li className="nav-item"><a href="/Home">Home</a></li>
-            <li className="nav-item"><a href="/Blackjack">Play Blackjack</a></li>
-            <li className="nav-item"><a href="/Tutorial">Tutorial</a></li>
+        <nav className="home-navbar">
+          <ul className="home-nav-list">
+            <li className="home-nav-item"><a href="/Home">Home</a></li>
+            <li className="home-nav-item"><a href="/Blackjack">Play Blackjack</a></li>
+            <li className="home-nav-item"><a href="/Tutorial">Tutorial</a></li>
           </ul>
         </nav>
-        <div className="content">
-          <h1 className="title">Welcome to the Home Page</h1>
+        <div className="home-content">
+          <h1 className="home-title">Welcome to the Home Page</h1>
         </div>
-        <div className="sub-content">
-            <p className="subtitle">New to Blackjack?</p>
-            <p className="description">Blackjack, also known as 21, is a popular card game played in casinos and homes worldwide. 
+        <div className="home-sub-content">
+            <p className="home-subtitle">New to Blackjack?</p>
+            <p className="home-description">Blackjack, also known as 21, is a popular card game played in casinos and homes worldwide. 
             The objective is simple: players aim to beat the dealer by getting a hand value as close to 21 as possible without exceeding it. 
             Each card has a point value; numbered cards are worth their face value, face cards (kings, queens, and jacks) are worth 10 points, 
             and aces can be worth either 1 or 11 points, depending on what benefits the player&apos;s hand. Players are dealt two cards initially and 

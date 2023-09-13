@@ -44,19 +44,19 @@
   
   /* Style for various containers within the game */
   .running-count-container,
-  deck-count-container,
-  score-container,
-  deal-container,
-  buttons-container,
-  dealer-cards-container,
-  player-cards-container {
+  .deck-count-container,
+  .score-container,
+  .deal-container,
+  .buttons-container,
+  .dealer-cards-container,
+  .player-cards-container {
     flex: 1; /* Equal distribution of space among containers */
     text-align: center;
     padding: 10px;
   }
   
   /* Style for buttons */
-  button {
+  .button {
     background-color: #333;
     color: #fff;
     border: none;
@@ -67,7 +67,7 @@
   }
   
   /* Style for button hover effect */
-  button:hover {
+  .button:hover {
     background-color: #555;
   }
   
