@@ -18,7 +18,7 @@ const LandingPage = () => {
         </nav>
         <div className="content">
           <h1 className="title">Welcome to the Landing Page</h1>
-          <img src="/path/to/your/logo.png" alt="Blackjack Logo" className="logo" />
+          <img src="src/assets/images/black-jack-logo.png" alt="Blackjack Logo" className="logo" />
         </div>
       </div>
     );
