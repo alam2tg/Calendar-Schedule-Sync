@@ -25,7 +25,7 @@ function Header () {
         <>
       <Navbar className='header'>
         <Container fluid>
-          <Navbar.Brand className='nav-item' style={{color:'white', fontSize:'24px'}} as={Link} to='/'>
+          <Navbar.Brand className='header-nav-item' style={{color:'white', fontSize:'24px'}} as={Link} to='/'>
             BACK TO LANDING
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
@@ -43,7 +43,7 @@ function Header () {
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link className='nav-item' style={{color:'white', fontSize:'24px'}} onClick={() => setShowModal(true)}>LOG IN / SIGN UP</Nav.Link>
+                <Nav.Link className='header-nav-item' style={{color:'white', fontSize:'24px'}} onClick={() => setShowModal(true)}>LOG IN / SIGN UP</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>

@@ -3,10 +3,15 @@
   	min-width:90vw;
 	height: 70px;
 	background-color: black;
+	margin-top: 10px;
+	border-radius: 10px;
+	padding: 10px;
  }
 
 /* Hover effect for navigation items */
-.nav-item:hover {
+.header-nav-item:hover {
 	background-color: rgba(200, 200, 200, 0.5); /* Change the text color with opacity; /* Change the background color on hover */
 	transition: background-color 0.3s ease;
+	padding: 10px;
+	border-radius: 10px;
   }

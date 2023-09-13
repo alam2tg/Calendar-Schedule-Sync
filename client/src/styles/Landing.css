@@ -6,31 +6,34 @@
   height: 100%;
   background-color: var(--red);
   padding: 20px;
+  border-radius: 10px; /* Adjust the radius as needed */
+  overflow: hidden; /* Ensures that the border-radius is applied */
   font-family: 'Cardo', serif; /* Apply the "Cardo" font */
 }
 
 /* Style for the navigation bar */
-.navbar {
+.landing-navbar {
   background-color: #333; /* Set your desired navbar background color */
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px; /* Adjust the radius as needed */
   overflow: hidden; /* Ensures that the border-radius is applied */
 }
 
-.nav-list {
+.landing-nav-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
 
-.nav-item {
+.landing-nav-item {
   margin-right: 20px;
+  padding: 10px;
   border-radius: 10px; /* Adjust the radius as needed */
   overflow: hidden; /* Ensures that the border-radius is applied */
 }
 
-.nav-item a {
+.landing-nav-item a {
   text-decoration: none;
   color: #fff; /* Set your desired link text color */
   font-weight: bold;
@@ -38,12 +41,12 @@
 }
 
 /* Hover effect for navigation items */
-.nav-item:hover {
+.landing-nav-item:hover {
   background-color: rgba(255, 0, 0, 0.5); /* Change the text color with opacity; /* Change the background color on hover */
   transition: background-color 0.3s ease;
 }
 
-.content {
+.landing-content {
   width:100%;
   min-width:90vw;
   height: 100%;
@@ -51,9 +54,10 @@
 }
 
 /* Style for the title */
-.title {
+.landing-title {
   font-size: 60px;
   margin-bottom: 0;
+  margin-top: 20px;
 }
 
 /* Style for the logo */
