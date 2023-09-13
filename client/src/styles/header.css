@@ -1,15 +1,12 @@
 .header {
 	width:100%;
   	min-width:90vw;
-	height: 100px;
+	height: 70px;
+	background-color: black;
  }
-
-.nav-item {
-	padding: 20px;
-}
 
 /* Hover effect for navigation items */
 .nav-item:hover {
-	background-color: rgba(255, 0, 0, 0.5); /* Change the text color with opacity; /* Change the background color on hover */
+	background-color: rgba(200, 200, 200, 0.5); /* Change the text color with opacity; /* Change the background color on hover */
 	transition: background-color 0.3s ease;
   }
