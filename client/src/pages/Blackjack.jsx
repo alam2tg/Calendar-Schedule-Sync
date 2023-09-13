@@ -247,10 +247,10 @@ const Blackjack = () => {
 
 
                 <div className="outline dealer-cards-container">
-                    <h3>Dealer Cards Container</h3>
+                    <h3>Dealer</h3>
                 </div>
                 <div className="outline player-cards-container">
-                    <h3>Player Cards Container</h3>
+                    <h3>Player</h3>
                 </div>
             </section>
         </div>
