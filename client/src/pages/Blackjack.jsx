@@ -4,11 +4,178 @@
 import { Link } from "react-router-dom";
 import "../styles/Blackjack.css";
 
-
-
-
-
 const Blackjack = () => {
+    const card = [
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-c',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-d',
+    },
+    {
+    name: '', 
+    value: '', 
+    count: '',
+    image: '../assets/cards/-s',
+    },
+    {
+    name: '',
+    value: '',
+    count: '',
+    image: '../assets/cards/-h',
+    },
+    ]
+
     //keep track of total card point value for the dealer
     let dealerSum = 0;
 
@@ -27,8 +194,6 @@ const Blackjack = () => {
     let hidden;
 
     let deck;
-
-
 
     // on window load we need the deck to be built
     window.onload = function() {
@@ -53,7 +218,6 @@ const Blackjack = () => {
         } 
     }
 
-
     // create a function to shuffle the deck and get a random card
     function shuffleCards() {
         for (let i = 0; i < deck.length; i++) {
@@ -63,7 +227,6 @@ const Blackjack = () => {
             deck[j] = temp;
         }
     }
-
 
     function playBlackjack() {
         // remove the card from the end of the array and make it the hidden card for the dealer
@@ -89,7 +252,6 @@ const Blackjack = () => {
             document.getElementById("dealer-cards").append(cardImg);
         }
 
-
         //giving cards to the user
         for (let i = 0; i < 2; i++){
             // create img tag 
@@ -106,9 +268,6 @@ const Blackjack = () => {
 
         // document.getElementById("hit-button").addEventListener("click", hit)
         // document.getElementById("stand-button").addEventListener("click", stand)
-        
-        
-        
     }
     // functionality for the hit button
     function hit(){
@@ -129,10 +288,8 @@ const Blackjack = () => {
         if (reduceAce(userSum, userAceCount) > 21) {
             canHit = false;
         }
-
-       
-        
     }
+
     //functionality for when the user stands
     function stand() {
         dealerSum = reduceAce(dealerSum, dealerAceCount);
@@ -163,8 +320,6 @@ const Blackjack = () => {
         document.getElementById("").innerText = message;
         document.getElementById("").innerText = dealerSum;
         document.getElementById("").innerText = userSum;
-
-    
     }
 
     function getValue(card) {
@@ -182,7 +337,6 @@ const Blackjack = () => {
             }
             return 10;
         }
-
         // otherwise return value of digits
         return parseInt(value);  
     }
@@ -195,7 +349,6 @@ const Blackjack = () => {
         return 0;
     }
 
-
     // reduce total sum by changed ace number from 11 to 1 as many times as possible
     function reduceAce(userSum, userAceCount) {
         while (userSum > 21 && userAceCount > 0) {
@@ -204,6 +357,8 @@ const Blackjack = () => {
         }
         return userSum;
     }
+
+    // HTML Template to create blackjack page, style with traditional CSS
     return (
         <div className="outline blackjack">
             
@@ -248,10 +403,15 @@ const Blackjack = () => {
 
                 <div className="outline dealer-cards-container">
                     <h3>Dealer Cards Container</h3>
-                    <div className="dealer-cards"></div>
+                    <div className="dealer-cards">
+                        <img id={card.name} src={card.image}></img>
+                    </div>
                 </div>
                 <div className="outline player-cards-container">
                     <h3>Player Cards Container</h3>
+                    <div className="player-cards">
+                        <img id={card.name} src={card.image}></img>
+                    </div>
                 </div>
             </section>
         </div>
