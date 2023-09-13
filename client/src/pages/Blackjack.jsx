@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "../styles/Blackjack.css";
 
 const Blackjack = () => {
-    const card = [
+    const cards = [
 	{
 	name: '2-C',
 	value: 2,
@@ -866,13 +866,13 @@ const Blackjack = () => {
                 <div className="outline dealer-cards-container">
                     <h3>Dealer Cards Container</h3>
                     <div className="dealer-card">
-                        <img id={card.name} src={card.image}></img>
+                        <img id={cards.name} src={cards.image}></img>
                     </div>
                 </div>
                 <div className="outline player-cards-container">
                     <h3>Player Cards Container</h3>
                     <div className="player-cards">
-                        <img id={card.name} src={card.image}></img>
+                        <img id={cards.name} src={cards.image}></img>
                     </div>
                 </div>
             </section>

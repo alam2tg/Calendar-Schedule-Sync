@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Card from '../components/CardBody.jsx'
+import CardBody from './CardBody';
 
 const card = [
 	{
@@ -320,7 +320,7 @@ function playerHand() {
 	const renderHand = () => {
 		const components = [];
 		for (let i = 0; i < playerHandCount; i++) {
-			components.push(<cardBody key={i} />);
+			components.push(<CardBody key={i} />);
 		}
 		return components;
 	};

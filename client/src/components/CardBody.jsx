@@ -1,6 +1,6 @@
 // create CardBody using props
 
-export default function CardBody (props) {
+function CardBody (props) {
 	return (
 		<div className="deal-player-card">
 			<img className="card-img" 
@@ -10,5 +10,7 @@ export default function CardBody (props) {
 		</div>
 	)
 }
+
+export default CardBody;
 
 //Card function cannot be read because of props... 
