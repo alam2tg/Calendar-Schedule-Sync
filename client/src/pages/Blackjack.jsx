@@ -1,7 +1,7 @@
 // blackjack page
 // add components for different functionality
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "../styles/Blackjack.css";
 import PlayerHand from '../components/PlayerHand'
 
@@ -514,9 +514,9 @@ const Blackjack = () => {
         <div className="outline blackjack">
             
             <h1 className="blackjack-header">Welcome to the Blackjack Page</h1>
-            <Link to="/home">
+            {/* <Link to="/home">
                 <h2 className="blackjack-nav">Home</h2>
-            </Link>
+            </Link> */}
 
             <section className="game-container">
 
@@ -537,7 +537,7 @@ const Blackjack = () => {
                     </header>
                 </div>
 
-                <div className="outline deal-container"></div>
+                {/* <div className="outline deal-container"></div> */}
 
                 <div className="outline buttons-container">
                     <div>
@@ -553,6 +553,12 @@ const Blackjack = () => {
 
 
                 <div className="outline dealer-cards-container">
+
+                    <h3>Dealer</h3>
+                </div>
+                <div className="outline player-cards-container">
+                    <h3>Player</h3>
+
                     <h3>Dealer Cards Container</h3>
                     <div className="dealer-card">
                         <img id={cards.name} src={cards.image}></img>
@@ -563,6 +569,7 @@ const Blackjack = () => {
                     <div className="player-cards">
                         <img id={cards.name} src={cards.image}></img>
                     </div>
+
                 </div>
             </section>
         </div>

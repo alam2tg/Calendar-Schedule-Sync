@@ -23,10 +23,10 @@ function Header () {
         //     <button>Logout</button>
         // </ div>
         <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar className='header'>
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            BlackJack
+          <Navbar.Brand className='nav-item' style={{color:'white', fontSize:'24px'}} as={Link} to='/'>
+            BACK TO LANDING
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
@@ -43,7 +43,7 @@ function Header () {
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Nav.Link className='nav-item' style={{color:'white', fontSize:'24px'}} onClick={() => setShowModal(true)}>LOG IN / SIGN UP</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
