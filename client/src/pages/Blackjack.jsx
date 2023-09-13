@@ -357,19 +357,19 @@ const Blackjack = () => {
     
     // create the deck and match each type of card to their number value
     // so from A-C to K-C, A-D to K-D, A-H to K-H and A-S to K-S
-    function cardContainer() {
-        let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]; 
-        let types = ["C", "D", "H", "S"];
-        deck = [];
+    // function cardContainer() {
+    //     let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]; 
+    //     let types = ["C", "D", "H", "S"];
+    //     deck = [];
         
-        // double for loop to loop through both values and types array
-        for (let i = 0; i < types.length; i++) {
-            for (let j = 0; j < values.length; j++) {
-                // push each card to the deck array
-                deck.push(values[j] + "-" + types[i]);
-            }
-        } 
-    }
+    //     // double for loop to loop through both values and types array
+    //     for (let i = 0; i < types.length; i++) {
+    //         for (let j = 0; j < values.length; j++) {
+    //             // push each card to the deck array
+    //             deck.push(values[j] + "-" + types[i]);
+    //         }
+    //     } 
+    // }
 
     // create a function to shuffle the deck and get a random card
     function shuffleCards() {
@@ -623,7 +623,7 @@ const Blackjack = () => {
 
 					<div className="dealer-card">
                         <img id={cards.name} src={cards.image}></img>
-
+                    </div>
                 </div>
                 <div className="outline player-cards-container">
                     <h3>Player</h3>
@@ -645,7 +645,6 @@ const Blackjack = () => {
 							// <img key={card.name} src={card.image}/>
 						))}
                     </div>
-
                 </div>
             </section>
         </div>
