@@ -1,3 +1,50 @@
+/* Style for the whole landing page container */
+/* Style for the whole landing page container */
+.landing-page {
+  width:100%;
+  min-width:70vw;
+  height: 100%;
+  background-color: var(--green);
+  padding: 20px;
+  top: 50px;
+}
+
+/* Style for the navigation bar */
+.navbar {
+  background-color: #333; /* Set your desired navbar background color */
+  padding: 10px;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #fff; /* Set your desired link text color */
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Style for the title */
+.title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* Style for the logo */
+.logo {
+  width: 150px; /* Set your desired logo width */
+  height: auto;
+}
+
 /* #Landing-Header {
     font-size: 36px;
     color: #333;
