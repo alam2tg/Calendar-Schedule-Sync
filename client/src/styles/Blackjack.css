@@ -18,12 +18,15 @@
     justify-content: center;
     /* min-height: 80vh; Ensure full viewport height */
     background-color: rgb(50,40,30);
+    border-radius: 10px;
+    border: 1px solid goldenrod;
   }
   
   /* Style for the Blackjack header */
   .blackjack-header {
     font-size: 36px;
     margin-bottom: 20px;
+    color: rgb(100,80,60);
   }
   
   /* Style for the navigation link */
@@ -45,6 +48,7 @@
     background-color: rgb(50,100,50);
     width: 90vw;
     border-radius: 10px;
+    border: 1px solid rgb(100,200,100);
   }
   
   /* Style for various containers within the game */
@@ -64,6 +68,11 @@
     grid-column: 1;
     grid-row: 1;
   }
+  .running-count-container,
+  .deck-count-container {
+    background-color: rgb(100,200,100);
+    padding: 10px;
+  }
 
   .dealer-cards-container {
     grid-column: 2;
@@ -82,6 +91,8 @@
   .buttons-container {
     grid-column: 3;
     grid-row: 3;
+    background-color: rgb(100,200,100);
+    padding: 10px;
   }
   
   /* Style for buttons */
