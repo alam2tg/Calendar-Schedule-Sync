@@ -1,10 +1,74 @@
-#Landing-Header {
+/* Style for the whole landing page container */
+/* Style for the whole landing page container */
+.landing-page {
+  width:100%;
+  min-width:90vw;
+  height: 100%;
+  background-color: var(--red);
+  padding: 20px;
+  font-family: 'Cardo', serif; /* Apply the "Cardo" font */
+}
+
+/* Style for the navigation bar */
+.navbar {
+  background-color: #333; /* Set your desired navbar background color */
+  padding: 20px;
+  border-radius: 10px; /* Adjust the radius as needed */
+  overflow: hidden; /* Ensures that the border-radius is applied */
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item {
+  margin-right: 20px;
+  border-radius: 10px; /* Adjust the radius as needed */
+  overflow: hidden; /* Ensures that the border-radius is applied */
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #fff; /* Set your desired link text color */
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Hover effect for navigation items */
+.nav-item:hover {
+  background-color: rgba(255, 0, 0, 0.5); /* Change the text color with opacity; /* Change the background color on hover */
+  transition: background-color 0.3s ease;
+}
+
+.content {
+  width:100%;
+  min-width:90vw;
+  height: 100%;
+  text-align: center;
+}
+
+/* Style for the title */
+.title {
+  font-size: 60px;
+  margin-bottom: 0;
+}
+
+/* Style for the logo */
+.logo {
+  width: 33.3%; /* Set your desired logo width */
+  height: auto;
+}
+
+/* #Landing-Header {
     font-size: 36px;
     color: #333;
   }
   
   /* Style for the links */
-  h2 {
+  /* h2 {
     text-decoration: none;
     margin: 10px;
     padding: 10px 20px;
@@ -17,4 +81,4 @@
   
   h2:hover {
     background-color: #0056b3;
-  }
+  } */
