@@ -314,8 +314,12 @@ const card = [
 	},
 	]
 
-function playerHand() {
-	const [playerHandCount, setHandCount] = useState(1);
+function PlayerHand() {
+	let [playerHandCount, setHandCount] = useState(1);
+
+	const handleCount = () => {
+		setHandCount((playerHandCount + 1));
+	}
 
 	const renderHand = () => {
 		const components = [];
@@ -328,7 +332,7 @@ function playerHand() {
 	return (
 
 		<div className="player-cards">
-			<button onClick={() => setHandCount(playerHandCount + 1)}>
+			<button onClick={handleCount} >
 				Add Component
 			</button>
 			<div className="deal-player-card">{renderHand}
@@ -339,4 +343,4 @@ function playerHand() {
 	);
 }
 
-export default playerHand;
+export default PlayerHand;
