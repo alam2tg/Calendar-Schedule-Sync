@@ -1,7 +1,7 @@
 // blackjack page
 // add components for different functionality
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "../styles/Blackjack.css";
 
 
@@ -208,9 +208,9 @@ const Blackjack = () => {
         <div className="outline blackjack">
             
             <h1 className="blackjack-header">Welcome to the Blackjack Page</h1>
-            <Link to="/home">
+            {/* <Link to="/home">
                 <h2 className="blackjack-nav">Home</h2>
-            </Link>
+            </Link> */}
 
             <section className="game-container">
 
@@ -231,7 +231,7 @@ const Blackjack = () => {
                     </header>
                 </div>
 
-                <div className="outline deal-container"></div>
+                {/* <div className="outline deal-container"></div> */}
 
                 <div className="outline buttons-container">
                     <div>
