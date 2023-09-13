@@ -520,13 +520,14 @@ const Blackjack = () => {
 
             <section className="game-container">
 
-                <div className="outline running-count-container small-container">
-                    <h3>Running Count: </h3>
-                </div>
-
-                <div className="outline deck-count-container">
-                    <h3>Cards in Deck: </h3>
-                </div>
+                <div className="count-container">
+					<div className="outline running-count-container">
+						<h3>Running Count: </h3>
+					</div>
+					<div className="outline deck-count-container">
+						<h3>Cards in Deck: </h3>
+					</div>
+				</div>
 
                 <div className="score-container ">
                     <header className="outline wins">
@@ -555,17 +556,12 @@ const Blackjack = () => {
                 <div className="outline dealer-cards-container">
 
                     <h3>Dealer</h3>
-                </div>
-                <div className="outline player-cards-container">
-                    <h3>Player</h3>
-
-                    <h3>Dealer Cards Container</h3>
-                    <div className="dealer-card">
+					<div className="dealer-card">
                         <img id={cards.name} src={cards.image}></img>
                     </div>
                 </div>
                 <div className="outline player-cards-container">
-                    <h3>Player Cards Container</h3>
+                    <h3>Player</h3>
                     <div className="player-cards">
                         <img id={cards.name} src={cards.image}></img>
                     </div>
