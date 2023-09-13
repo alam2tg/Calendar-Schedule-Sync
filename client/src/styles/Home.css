@@ -6,6 +6,7 @@
     height: 100%;
     background-color: var(--red);
     padding: 20px;
+    font-family: 'Cardo', serif; /* Apply the "Cardo" font */
   }
   
   /* Style for the navigation bar (same as the previous page) */
@@ -42,13 +43,13 @@
 
   /* Style for the title */
 .title {
-    font-size: 36px;
+    font-size: 60px;
     margin-bottom: 10px; /* Adjust spacing as needed */
   }
   
   /* Style for the subtitle */
   .subtitle {
-    font-size: 24px;
+    font-size: 36px;
     color: #333; /* Set your desired subtitle color */
   }
 
@@ -60,6 +61,6 @@
   }
 
   .description {
-    font-size: 18px;
+    font-size: 24px;
     margin-right: 10px;
   }
