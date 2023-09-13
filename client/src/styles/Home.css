@@ -13,6 +13,8 @@
   .navbar {
     background-color: #333;
     padding: 10px;
+    border-radius: 10px; /* Adjust the radius as needed */
+    overflow: hidden; /* Ensures that the border-radius is applied */
   }
 
   .nav-list {
@@ -51,16 +53,19 @@
   .subtitle {
     font-size: 36px;
     color: #333; /* Set your desired subtitle color */
+    text-align: center;
   }
 
   .sub-content {
     width:100%;
     min-width:80vw;
-    max-width: 90vw;
+    max-width: 86vw;
     height: 100%;
+    background-color: #fff;
+    padding: 20px;
   }
 
   .description {
     font-size: 24px;
-    margin-right: 10px;
+    padding: 10px;
   }

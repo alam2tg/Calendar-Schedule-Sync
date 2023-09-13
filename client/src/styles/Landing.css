@@ -13,6 +13,8 @@
 .navbar {
   background-color: #333; /* Set your desired navbar background color */
   padding: 20px;
+  border-radius: 10px; /* Adjust the radius as needed */
+  overflow: hidden; /* Ensures that the border-radius is applied */
 }
 
 .nav-list {
