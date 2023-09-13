@@ -14,7 +14,7 @@
 /* Style for the navigation bar */
 .landing-navbar {
   background-color: #333; /* Set your desired navbar background color */
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px; /* Adjust the radius as needed */
   overflow: hidden; /* Ensures that the border-radius is applied */
 }
@@ -28,6 +28,7 @@
 
 .landing-nav-item {
   margin-right: 20px;
+  padding: 10px;
   border-radius: 10px; /* Adjust the radius as needed */
   overflow: hidden; /* Ensures that the border-radius is applied */
 }
