@@ -11,9 +11,9 @@ const HomePage = () => {
       <div className="home-page">
         <nav className="navbar">
           <ul className="nav-list">
-            <li className="nav-item"><a href="/">Home</a></li>
-            <li className="nav-item"><a href="/play-blackjack">Play Blackjack</a></li>
-            <li className="nav-item"><a href="/tutorial">Tutorial</a></li>
+            <li className="nav-item"><a href="/Home">Home</a></li>
+            <li className="nav-item"><a href="/Blackjack">Play Blackjack</a></li>
+            <li className="nav-item"><a href="/Tutorial">Tutorial</a></li>
           </ul>
         </nav>
         <div className="content">
