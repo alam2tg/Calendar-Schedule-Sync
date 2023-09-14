@@ -6,15 +6,24 @@
 // import {Link} from 'react-router-dom'
 import '../styles/Home.css'
 
+import Auth from  "../utils/auth"
+
 const HomePage = () => {
     return (
       <div className="home-page">
         <nav className="home-navbar">
-          <ul className="home-nav-list">
-            <li className="home-nav-item"><a href="/Home">Home</a></li>
-            <li className="home-nav-item"><a href="/Blackjack">Play Blackjack</a></li>
-            <li className="home-nav-item"><a href="/Tutorial">Tutorial</a></li>
+        { Auth.loggedIn() ? (
+          <ul className="landing-nav-list">
+            <li className="landing-nav-item"><a href="/Home">Home</a></li>
+            <li className="landing-nav-item"><a href="/Blackjack">Play Blackjack</a></li>
+            <li className="landing-nav-item"><a href="/Tutorial">Tutorial</a></li>
           </ul>
+
+            ):(
+            <>
+            <h2> Login! </h2>
+            </>
+            )}
         </nav>
         <div className="home-content">
           <h1 className="home-title">Welcome to the Home Page</h1>
