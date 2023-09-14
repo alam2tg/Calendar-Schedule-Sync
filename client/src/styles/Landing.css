@@ -64,8 +64,8 @@
 
 /* Style for the logo */
 .logo {
-  min-width: 500px; /* Set your desired logo width */
-  min-height: 500px;
+  width: 33.3%; /* Set your desired logo width */
+  height: auto;
   
 }
 
