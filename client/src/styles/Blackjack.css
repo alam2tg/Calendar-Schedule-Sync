@@ -11,8 +11,8 @@
   
   /* Style for the Blackjack page */
   .blackjack {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    /* flex-direction: column; */
     padding-bottom: 40px;
     align-items: center;
     justify-content: center;
@@ -28,6 +28,7 @@
     margin-bottom: 20px;
     color: rgb(120,100,80);
     font-weight: bolder;
+    text-align: center;
   }
   
   /* Style for the navigation link */
