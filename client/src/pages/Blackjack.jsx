@@ -397,6 +397,11 @@ const Blackjack = () => {
 		setUserSum(userSum + card.value)
 	}
 
+	// function hitButton() {
+	// 	userHit()
+	// 	dealerHit
+	// }
+
 	function dealCards() {   //function to deal one card user, one dealer, one user, one dealer card face down (make card hidden in html css)
 		// add card to user 
 	
@@ -436,7 +441,6 @@ const Blackjack = () => {
 	function playBlackjack() {
 		// shuffle the deck
 		shuffleCards();
-
 		dealCards();
 
 	}
