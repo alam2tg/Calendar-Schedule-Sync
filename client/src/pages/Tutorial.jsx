@@ -18,7 +18,11 @@ const Tutorial = () => {
     const steps = [
         {
             element: '#count',
-            intro: 'This section displays the running count and number of cards left in the deck. These values are vital in the Hi-Lo system, a blackjack card counting technique that assigns values to cards (Ace, King, Queen, Jack, and 10 are -1, 2-6 are +1, 7-9 are 0) and keeps a running count. A higher running count indicates a greater advantage for the player.',
+            intro: 'This section displays the running count. This value is vital in the Hi-Lo system, a blackjack card counting technique that assigns values to cards (Ace, King, Queen, Jack, and 10 are -1, 2-6 are +1, 7-9 are 0) and keeps a running count. A higher running count indicates a greater advantage for the player.',
+        },
+        {
+            element: '#hand',
+            intro: 'This section displays the player\'s and dealer\'s hands. These are the added up values of the cards in their possession.',
         },
         {
             element: '#action-buttons',
@@ -55,14 +59,15 @@ const Tutorial = () => {
 
             <section className="game-container">
 
-                <div id="count" className="count-container">
-                    <div className="outline running-count-container small-container">
+                <div className="count-container">
+                    <div id="count" className="outline running-count-container small-container">
                         <h3>Running Count: </h3>
                     </div>
                 
 
-                    <div className="outline deck-count-container">
-                        <h3>Cards in Deck: </h3>
+                    <div id="hand" className="outline deck-count-container">
+                        <h3>Dealer Hand: </h3>
+						<h3>Player Hand: </h3>
                     </div>
                 </div>
 

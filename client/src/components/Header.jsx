@@ -34,7 +34,7 @@ function Header () {
               
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link style={{color:'white', fontSize:'24px'}} onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link className='header-nav-item' style={{color:'white', fontSize:'24px'}} onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
                 <Nav.Link className='header-nav-item' style={{color:'white', fontSize:'24px'}} onClick={() => setShowModal(true)}>LOG IN / SIGN UP</Nav.Link>
