@@ -18,10 +18,11 @@ const Blackjack = () => {
 	const [dealerSum, setDealerSum] = useState(0);
 
 	//represent the "count" ( 2-6=(1) , 7-9=(0), 10-A=(-1))
-	const [count, setCount] = useState(0)
+	const [count, setCount] = useState(0) 
+	//create function that analyzes value, then changes counter based on value
 
 	//not sure if this needs to be tracked
-	const [userAceCount, setUserAceCount] = useState(0);
+	const [endRound, setEndRound] = useState(false);
 
 	// represents the cards in deck as an array
 	const [deck, setDeck] = useState([
@@ -340,17 +341,8 @@ const Blackjack = () => {
 	//will represent when it's the user's turn
 	// const [turn, setTurn] = useState(true);
 
-	const [win, setWin] = useState(0)
-	const [lose ,setLose] = useState(0)
-
-
-	// on window load we need the deck to be built
-	// window.onload = function() {
-	//     cardContainer();
-	//     shuffleCards();
-	//     // playBlackjack();
-	// } 
-
+	const [winCount, setWinCount] = useState(0)
+	const [loseCount ,setLoseCount] = useState(0)
 
 	// create a function to shuffle the deck and get a random card
 	function shuffleCards() {
@@ -370,31 +362,37 @@ const Blackjack = () => {
 	// 	return singleCard
 	// }
 
-	function dealerHit(){
+	function dealerHit() {
 		//rearranged code, stored drawn card into variable for accuracy
 		// add card to hand
 		const card = deck[0]
 		setDealersHand([...dealersHand, card]);
 		//remove card from deck
+		const updatedDeck = deck.filter(deck => deck !== card)
 
-		setDeck(deck.slice(1, deck.length));
+		console.log(updatedDeck)
+		setDeck(updatedDeck);
 		/// check aces??
-		setDealerSum(dealerSum+ card.value)
+		setDealerSum(dealerSum + card.value)
 	}
 
 
 	function userHit() {
 	//re-arranged format to store a variable within function 
 		//remove card from deck
-		const card = deck[0]
+		const card = deck.pop();
 
 		// add card to hand
 		setUsersHand([...usersHand, card]);
-
-		setDeck(deck.slice(card, deck.length));
-		/// check aces??
-
+		const updatedDeck = deck.filter(deck => deck !== card)
+		console.log(updatedDeck)
+		setDeck(updatedDeck);
 		setUserSum(userSum + card.value)
+
+		if (userSum.value > 21) {
+			setEndRound(!endRound) //sets gameover to true
+			endRoundHandler();
+		}
 	}
 
 	// function hitButton() {
@@ -403,24 +401,31 @@ const Blackjack = () => {
 	// }
 
 	function dealCards() {   //function to deal one card user, one dealer, one user, one dealer card face down (make card hidden in html css)
-		// add card to user 
+		// add card to user
+
 	
 		// store a card value with userHit() User draws 1 card using userHit,
-		const userCard1 = deck.userHit(0)
+		const userCard1 = deck[0]
+		console.log(userCard1)
 		setUsersHand([...usersHand, userCard1])
+
 			// setUserSum(...userSum + userCard1.value) - setUserSum is run on userHit, should be adding value already. 
 
-		const dealerCard1 = deck.dealerHit(1)
+		const dealerCard1 = deck[1]
+		console.log(dealerCard1)
 		setDealersHand([...dealersHand, dealerCard1])
 			// setDealerSum(...dealerSum + dealerCard1.value)
 
-		const userCard2 = deck.userHit(2)
+		const userCard2 = deck[2]
 		setUsersHand([...usersHand, userCard2])
+		console.log(userCard2)
 			// setUserSum(...userSum + userCard2.value)
 
-		const dealerCard2 = deck.dealerHit(3)
-		setDealersHand([...dealersHand, dealerCard2])
-			// setDealerSum(...dealerSum + dealerCard2.value)
+		// const dealerCard2 = deck[3]
+		// dealerCard2.setAttribute("id","dealer-card-2")
+		// setDealersHand([...dealersHand, dealerCard2])
+		// console.log(dealerCard2)
+		// 	// setDealerSum(...dealerSum + dealerCard2.value)
 
 
 		// setDeck(deck.slice(4, deck.length)); not sure if required, already setting deck in userHit / dealerHit
@@ -428,11 +433,46 @@ const Blackjack = () => {
 	}
 
 
-	// function endRound() {
-	// 	//gets called by bust or dealer stand
-	// 	//show results
-	// 	//ask to play agin?
+
+	// function count() {
+
 	// }
+
+
+	function endRoundHandler() {
+		if (endRound == true) {	//gets called by stateful value
+			const usersHandValue = usersHand
+			const dealersHandValue = dealersHand
+			if (usersHandValue > 21) {
+				setLoseCount(loseCount+1)
+				alert("Tough luck!")
+			} 
+			else if (dealersHandValue > 21) {
+				setWinCount(winCount+1)
+				alert("Well played!")
+			}
+			
+			else if (usersHandValue > dealersHandValue) {
+				setWinCount(winCount+1)
+				alert("Nice hand!")
+
+			}
+			else if (usersHandValue < dealersHandValue) {
+				setLoseCount(loseCount+1)
+				alert("Dealers win hands too!")
+			}
+			else {
+				return alert("It's a draw!")
+			}
+		}
+	}
+
+	function stand() {
+		while(dealersHand.value < 17) {
+			dealerHit();
+		}
+		return endRound();
+	}
 
 	useEffect(() => {
 		shuffleCards()
@@ -472,17 +512,6 @@ const Blackjack = () => {
 	//     return 0;
 	// }
 
-	// reduce total sum by changed ace number from 11 to 1 as many times as possible
-	// function reduceAce() {
-	// 	while (userSum > 21 && userAceCount > 0) {
-	// 		setUserSum(userSum - 10);
-	// 		setUserAceCount(userAceCount - 1);
-	// 	}
-	// 	while (dealerSum > 21 && dealerAceCount > 0) {
-	// 		setDealerSum(dealerSum - 10);
-	// 		setDealerAceCount(userAceCount - 1);
-	// 	}
-	// }
 
 	// HTML Template to create blackjack page, style with traditional CSS
 	return (
@@ -494,11 +523,8 @@ const Blackjack = () => {
             </Link> */}
 
 			<section className="game-container">
-
-
 				<div className="count-container">
 					<div className="outline running-count-container">
-						<h3>Running Count: {userCount}</h3>
 						<h3>Running Count: {count}</h3>
 					</div>
 					<div className="outline deck-count-container">
@@ -523,7 +549,7 @@ const Blackjack = () => {
 						<button id="hit-button" onClick={userHit}><h3>Hit</h3></button>
 					</div>
 					<div>
-						<button id="stand-button" onClick={dealerHit}><h3>Stand</h3></button>
+						<button id="stand-button" onClick={stand}><h3>Stand</h3></button>
 					</div>
 					<div>
 						<button id="deal-button" onClick={playBlackjack}><h3>Deal New Hand</h3></button>
@@ -531,24 +557,22 @@ const Blackjack = () => {
 				</div>
 
 
-                <div className="outline dealer-cards-container">
-
-                     <h3>Dealer</h3>
-
-					<div className="dealer-card">
+            <div className="outline dealer-cards-container">
+               <h3></h3>
+					<div className="dealer-card">Dealer Cards
 						{dealersHand.map((deck) => (
-							<img key={deck.name} src={deck.image} />
+							<img key={deck.name} src={deck.image} value={deck.value} className="playing=card"/>
 							// <p key={card.name}>{card.name}</p>
 						))}
 					</div>
 				</div>
 
 				<div className="outline player-cards-container">
-					<h3>Dealer Cards Container</h3>
-					<div className="player-card">
+					<h3></h3>
+					<div className="player-card" >Player Cards
 						{usersHand.map((deck) => (
-							<img key={deck.name} src={deck.image} />
-							// <p key={card.name}>{card.name}</p>
+							<img key={deck.name} src={deck.image} value={deck.value} className="playing=card" />
+
 						))}
 
 					</div>

@@ -1,5 +1,8 @@
 /* BlackJack.css */
-
+img {
+  max-height: 250px;/*you can comment these out */
+  width: auto;
+}
 /* Style for the outline container */
 .outline {
     /* border: 2px solid #333; Add a border to the outline */
@@ -11,8 +14,13 @@
   
   /* Style for the Blackjack page */
   .blackjack {
+<<<<<<< HEAD
+    /* /* display: flex; */
+    flex-direction: column; */
+=======
     display: grid;
     /* flex-direction: column; */
+>>>>>>> 82afc07409b1151b90cea62270dae4b5c20944c8
     padding-bottom: 40px;
     align-items: center;
     justify-content: center;
@@ -20,6 +28,8 @@
     background-color: rgb(50,40,30);
     border-radius: 10px;
     border: 1px solid goldenrod;
+    width: 100%;
+
   }
   
   /* Style for the Blackjack header */
@@ -28,7 +38,11 @@
     margin-bottom: 20px;
     color: rgb(120,100,80);
     font-weight: bolder;
+<<<<<<< HEAD
+    height: auto;
+=======
     text-align: center;
+>>>>>>> 82afc07409b1151b90cea62270dae4b5c20944c8
   }
   
   /* Style for the navigation link */
@@ -38,6 +52,7 @@
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    
   }
   
   /* Style for the game container */
@@ -48,9 +63,10 @@
     column-gap: 350px; /* Add spacing between elements */
     row-gap: 70px;
     background-color: rgb(50,100,50);
-    width: 90vw;
+    width: 100%;
     border-radius: 10px;
     border: 1px solid rgb(100,200,100);
+
   }
   
   /* Style for various containers within the game */
@@ -81,13 +97,17 @@
     grid-column: 2;
     grid-row: 1;
     background-color: rgb(150,0,0);
-    color: rgb(255,150,150)
+    color: rgb(255,150,150);
+    height: 300px;
+
   }
   .player-cards-container {
     grid-column: 2;
     grid-row: 3;
     background-color: rgb(0,50,150);
-    color: rgb(150,150,255)
+    color: rgb(150,150,255);
+    min-height: 300px; /*you can comment these out */
+    min-width:200px; 
   }
 
   .score-container {
@@ -100,6 +120,7 @@
     color: rgb(50,100,50);
     padding: 10px;
   }
+
 
   .buttons-container {
     grid-column: 3;
@@ -137,6 +158,10 @@
   #deal-button:hover {
     background-color: rgba(0,255,0,0.5);
     transition: background-color 0.3s ease;
+  }
+
+  #dealer-card-2 {
+    display: none;
   }
   
   /* Style for button hover effect */
