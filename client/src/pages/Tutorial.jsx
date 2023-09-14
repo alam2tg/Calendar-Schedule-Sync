@@ -4,11 +4,33 @@ import Auth from  "../utils/auth"
 // import {Link} from 'react-router-dom';
 import '../styles/Blackjack.css';
 
+import { Steps } from 'intro.js-react';
+import React, {useState} from 'react';
+
 const Tutorial = () => {
+    const [enabled,setEnabled] = useState(true)
+    const [initialStep,setInitialStep] = useState(0)
+  
+    const onExit = () => {
+        setEnabled(false)  
+    }
+    const steps = [
+        {
+            element: '',
+            intro: '',
+            position: '',
+        },
+    ];
     return (
         <>
         { Auth.loggedIn() ? (
-            <div className="outline blackjack">
+        <div className="outline blackjack">
+            <Steps
+                enabled={enabled}
+                steps={steps}
+                initialStep={initialStep}
+                onExit={onExit}
+            />
             
             <h1 className="blackjack-header">Welcome to the Blackjack Page</h1>
             {/* <Link to="/home">

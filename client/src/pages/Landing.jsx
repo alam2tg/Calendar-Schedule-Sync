@@ -26,7 +26,7 @@ const LandingPage = () => {
             )}
         </nav>
         <div className="landing-content">
-          <h1 className="landing-title">Welcome to</h1>
+          <h1 className="landing-title">WELCOME TO</h1>
           <img src="src/assets/images/black-jack-logo.png" alt="Blackjack Logo" className="logo" />
         </div>
       </div>
