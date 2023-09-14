@@ -412,14 +412,24 @@ const Blackjack = () => {
 		}
 	}
 
+	function checkValue(card) {
+	
+		if (card.value > 9 || card.value < 2) { // function to check for 10, J, Q, K, A by value. SetCount -1
+			setCount(count-1)
+		}
+		if (1 < card.value < 7) {  //function to check for 2,3,4,5,6
+			setCount(count+1)
+		}
+	}
+
 	function dealCards() {   //function to deal one card user, one dealer, one user, one dealer card face down (make card hidden in html css)
 		// add card to user
-
-	
 		// store a card value with userHit() User draws 1 card using userHit,
 		const userCard1 = deck[0]
+		checkValue(userCard1)
 		console.log(userCard1)
 		setUsersHand([...usersHand, userCard1])
+		
 
 			// setUserSum(...userSum + userCard1.value) - setUserSum is run on userHit, should be adding value already. 
 
@@ -533,7 +543,8 @@ const Blackjack = () => {
 						<h3>Running Count: {count}</h3>
 					</div>
 					<div className="outline deck-count-container">
-						<h3>Cards in Deck: </h3>
+						<h3>Dealer Hand: {dealerSum.value}</h3>
+						<h3>Player Hand: {userSum.value}</h3>
 					</div>
 				</div>
 
@@ -563,12 +574,13 @@ const Blackjack = () => {
 
 
             <div className="outline dealer-cards-container">
-               <h3>Dealer Cards</h3>
+					<h3>Dealer Cards</h3>
 					<div className="dealer-card">
 						{dealersHand.map((deck) => (
-							<img key={deck.name} src={deck.image} value={deck.value} className="playing=card"/>
+							<img key={deck.name} id={deck.name} src={deck.image} value={deck.value} className="playing=card"/>
 							// <p key={card.name}>{card.name}</p>
 						))}
+
 					</div>
 				</div>
 
@@ -576,7 +588,7 @@ const Blackjack = () => {
 					<h3>Player Cards</h3>
 					<div className="player-card" >
 						{usersHand.map((deck) => (
-							<img key={deck.name} src={deck.image} value={deck.value} className="playing=card" />
+							<img key={deck.name} id={deck.name} src={deck.image} value={deck.value} className="playing=card" />
 							))}
 					</div>
 				</div>
