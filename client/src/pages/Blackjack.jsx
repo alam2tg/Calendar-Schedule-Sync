@@ -347,8 +347,8 @@ const Blackjack = () => {
 	// create a function to shuffle the deck and get a random card
 	function shuffleCards() {
 		const tempDeck = [...deck]
-		for (let i = 0; i < tempDeck.length; i++) {
-			let j = Math.floor(Math.random() * tempDeck.length);
+		for (let i = tempDeck.length -1; i > 0; i--) {
+			let j = Math.floor(Math.random() * (tempDeck.length+1));
 			let temp = tempDeck[i];
 			tempDeck[i] = tempDeck[j];
 			tempDeck[j] = temp;
@@ -563,8 +563,8 @@ const Blackjack = () => {
 
 
             <div className="outline dealer-cards-container">
-               <h3></h3>
-					<div className="dealer-card">Dealer Cards
+               <h3>Dealer Cards</h3>
+					<div className="dealer-card">
 						{dealersHand.map((deck) => (
 							<img key={deck.name} src={deck.image} value={deck.value} className="playing=card"/>
 							// <p key={card.name}>{card.name}</p>
@@ -573,13 +573,11 @@ const Blackjack = () => {
 				</div>
 
 				<div className="outline player-cards-container">
-					<h3></h3>
-					<div className="player-card" >Player Cards
+					<h3>Player Cards</h3>
+					<div className="player-card" >
 						{usersHand.map((deck) => (
 							<img key={deck.name} src={deck.image} value={deck.value} className="playing=card" />
-
-						))}
-
+							))}
 					</div>
 				</div>
 			</section>
