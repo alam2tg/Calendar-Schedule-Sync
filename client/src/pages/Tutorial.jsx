@@ -22,7 +22,7 @@ const Tutorial = () => {
         },
         {
             element: '#action-buttons',
-            intro: 'The buttons to hit, stand, and deal a new hand are displayed here. To hit means to request the be dealed another card. To stay means to keep your current hand. To deal a new hand means to receive two new cards.',
+            intro: 'The buttons to hit, stand, and deal a new hand are displayed here. To hit means to be dealt another card. To stay means to keep your current hand. To deal a new hand means to receive two new cards.',
         },
         {
             element: '#dealer',
