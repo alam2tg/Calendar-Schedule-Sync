@@ -66,6 +66,9 @@
   height: auto;
 }
 
+#no-login {
+  color: white;
+}
 /* #Landing-Header {
     font-size: 36px;
     color: #333;
