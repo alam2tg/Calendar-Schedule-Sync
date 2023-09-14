@@ -362,7 +362,7 @@ const Blackjack = () => {
 	// 	return singleCard
 	// }
 
-	function dealerHit(){
+	function dealerHit() {
 		//rearranged code, stored drawn card into variable for accuracy
 		// add card to hand
 		const card = deck[0]
@@ -373,7 +373,7 @@ const Blackjack = () => {
 		console.log(updatedDeck)
 		setDeck(updatedDeck);
 		/// check aces??
-		setDealerSum(dealerSum+ card.value)
+		setDealerSum(dealerSum + card.value)
 	}
 
 
@@ -401,7 +401,8 @@ const Blackjack = () => {
 	// }
 
 	function dealCards() {   //function to deal one card user, one dealer, one user, one dealer card face down (make card hidden in html css)
-		// add card to user 
+		// add card to user
+
 	
 		// store a card value with userHit() User draws 1 card using userHit,
 		const userCard1 = deck[0]
@@ -420,27 +421,18 @@ const Blackjack = () => {
 		console.log(userCard2)
 			// setUserSum(...userSum + userCard2.value)
 
-		const dealerCard2 = deck[3]
-		setDealersHand([...dealersHand, dealerCard2])
-		console.log(dealerCard2)
-			// setDealerSum(...dealerSum + dealerCard2.value)
+		// const dealerCard2 = deck[3]
+		// dealerCard2.setAttribute("id","dealer-card-2")
+		// setDealersHand([...dealersHand, dealerCard2])
+		// console.log(dealerCard2)
+		// 	// setDealerSum(...dealerSum + dealerCard2.value)
 
 
 		// setDeck(deck.slice(4, deck.length)); not sure if required, already setting deck in userHit / dealerHit
 		console.log(usersHand, dealersHand)
 	}
 
-	// function stand() {
-	// 	const dealerCard = deck[0]
-	// 	setDealersHand
 
-	// 	while(dealer.count < 17) {
-	// 		const draw = this.dealerDraw(dealer, deck);
-	// 		dealer = draw.dealer;
-	// 		deck = draw.updatedDeck;
-	// 	 }
-
-	// }
 
 	// function count() {
 
@@ -472,10 +464,14 @@ const Blackjack = () => {
 			else {
 				return alert("It's a draw!")
 			}
-		
-
-
 		}
+	}
+
+	function stand() {
+		while(dealersHand.value < 17) {
+			dealerHit();
+		}
+		return endRound();
 	}
 
 	useEffect(() => {
@@ -553,7 +549,7 @@ const Blackjack = () => {
 						<button id="hit-button" onClick={userHit}><h3>Hit</h3></button>
 					</div>
 					<div>
-						<button id="stand-button" onClick={dealerHit}><h3>Stand</h3></button>
+						<button id="stand-button" onClick={stand}><h3>Stand</h3></button>
 					</div>
 					<div>
 						<button id="deal-button" onClick={playBlackjack}><h3>Deal New Hand</h3></button>

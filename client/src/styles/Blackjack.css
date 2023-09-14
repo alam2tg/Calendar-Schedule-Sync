@@ -150,6 +150,10 @@ img {
     background-color: rgba(0,255,0,0.5);
     transition: background-color 0.3s ease;
   }
+
+  #dealer-card-2 {
+    display: none;
+  }
   
   /* Style for button hover effect */
   /* button:hover {
