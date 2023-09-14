@@ -1,7 +1,7 @@
 //tutorial page
 
 import Auth from  "../utils/auth"
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import '../styles/Blackjack.css';
 
 const Tutorial = () => {
@@ -11,9 +11,9 @@ const Tutorial = () => {
             <div className="outline blackjack">
             
             <h1 className="blackjack-header">Welcome to the Blackjack Page</h1>
-            <Link to="/home">
+            {/* <Link to="/home">
                 <h2 className="blackjack-nav">Home</h2>
-            </Link>
+            </Link> */}
 
             <section className="game-container">
 
