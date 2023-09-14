@@ -495,6 +495,7 @@ const Blackjack = () => {
 
 				<div className="count-container">
 					<div className="outline running-count-container">
+						<h3>Running Count: {userCount}</h3>
 						<h3>Running Count: {count}</h3>
 					</div>
 					<div className="outline deck-count-container">
@@ -529,7 +530,7 @@ const Blackjack = () => {
 
                 <div className="outline dealer-cards-container">
 
-                    {/* <h3>Dealer</h3>}
+                     <h3>Dealer</h3>
 
 					<div className="dealer-card">
 						{dealersHand.map((deck) => (
