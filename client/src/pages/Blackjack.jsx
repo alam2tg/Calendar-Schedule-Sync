@@ -2,8 +2,9 @@
 // add components for different functionality
 
 import cardImages from '../utils/images';
-import { Link } from "react-router-dom";
 
+
+import { Link } from "react-router-dom";
 import "../styles/Blackjack.css";
 import { useEffect, useState } from "react";
 // import PlayerHand from '../components/PlayerHand'
@@ -84,25 +85,25 @@ const Blackjack = () => {
 			name: 'J-C',
 			value: 10,
 			count: -1,
-			image: cardImages.JC,
+			image: cardImages.CJ,
 		},
 		{
 			name: 'Q-C',
 			value: 10,
 			count: -1,
-			image: cardImages.QC,
+			image: cardImages.CQ,
 		},
 		{
 			name: 'K-C',
 			value: 10,
 			count: -1,
-			image: cardImages.KC,
+			image: cardImages.CK,
 		},
 		{
 			name: 'A-C',
 			value: 11,
 			count: -1,
-			image: cardImages.AC,
+			image: cardImages.CA,
 		},
 		{
 			name: '2-H',
@@ -162,25 +163,25 @@ const Blackjack = () => {
 			name: 'J-H',
 			value: 10,
 			count: -1,
-			image: cardImages.JH,
+			image: cardImages.HJ,
 		},
 		{
 			name: 'Q-H',
 			value: 10,
 			count: -1,
-			image: cardImages.QH,
+			image: cardImages.HQ,
 		},
 		{
 			name: 'K-H',
 			value: 10,
 			count: -1,
-			image: cardImages.KH,
+			image: cardImages.HK,
 		},
 		{
 			name: 'A-H',
 			value: 11,
 			count: -1,
-			image: cardImages.AH,
+			image: cardImages.HA,
 		}, {
 			name: '2-S',
 			value: 2,
@@ -239,25 +240,25 @@ const Blackjack = () => {
 			name: 'J-S',
 			value: 10,
 			count: -1,
-			image: cardImages.JS,
+			image: cardImages.SJ,
 		},
 		{
 			name: 'Q-S',
 			value: 10,
 			count: -1,
-			image: cardImages.QS,
+			image: cardImages.SQ,
 		},
 		{
 			name: 'K-S',
 			value: 10,
 			count: -1,
-			image: cardImages.KS,
+			image: cardImages.SK,
 		},
 		{
 			name: 'A-S',
 			value: 11,
 			count: -1,
-			image: cardImages.AS,
+			image: cardImages.SA,
 		}, {
 			name: '2-D',
 			value: 2,
@@ -316,25 +317,25 @@ const Blackjack = () => {
 			name: 'J-D',
 			value: 10,
 			count: -1,
-			image: cardImages.JD,
+			image: cardImages.DJ,
 		},
 		{
 			name: 'Q-D',
 			value: 10,
 			count: -1,
-			image: cardImages.QD,
+			image: cardImages.DQ,
 		},
 		{
 			name: 'K-D',
 			value: 10,
 			count: -1,
-			image: cardImages.KD,
+			image: cardImages.DK,
 		},
 		{
 			name: 'A-D',
 			value: 11,
 			count: -1,
-			image: cardImages.AD,
+			image: cardImages.DA,
 		},
 	])
 
@@ -344,11 +345,18 @@ const Blackjack = () => {
 	const [winCount, setWinCount] = useState(0)
 	const [loseCount ,setLoseCount] = useState(0)
 
+	// function to wait 1 second
+	function wait1sec() {
+		setTimeout(()=> {
+			console.log('Delayed for 1 second.');
+		}, 1000)
+	}
+
 	// create a function to shuffle the deck and get a random card
 	function shuffleCards() {
 		const tempDeck = [...deck]
-		for (let i = 0; i < tempDeck.length; i++) {
-			let j = Math.floor(Math.random() * tempDeck.length);
+		for (let i = tempDeck.length -1; i > 0; i--) {
+			let j = Math.floor(Math.random() * (tempDeck.length+1));
 			let temp = tempDeck[i];
 			tempDeck[i] = tempDeck[j];
 			tempDeck[j] = temp;
@@ -366,6 +374,7 @@ const Blackjack = () => {
 		//rearranged code, stored drawn card into variable for accuracy
 		// add card to hand
 		const card = deck[0]
+		console.log(card)
 
 		if (card.value > 9 || card.value < 2) { // function to check for 10, J, Q, K, A by value. SetCount -1
 			setCount(count-1)
@@ -379,6 +388,7 @@ const Blackjack = () => {
 		const updatedDeck = deck.filter(deck => deck !== card)
 
 		console.log(updatedDeck)
+
 		setDeck(updatedDeck);
 		/// check aces??
 		setDealerSum(dealerSum + card.value)
@@ -389,13 +399,13 @@ const Blackjack = () => {
 	//re-arranged format to store a variable within function 
 		//remove card from deck
 		const card = deck[0]
-
-		if (card.value > 9 || card.value < 2) { // function to check for 10, J, Q, K, A by value. SetCount -1
-			setCount(count-1)
-		}
-		if (1 < card.value < 7) {  //function to check for 2,3,4,5,6
-			setCount(count+1)
-		}
+		console.log(card)
+		// if (card.value > 9 || card.value < 2) { // function to check for 10, J, Q, K, A by value. SetCount -1
+		// 	setCount(count-1)
+		// }
+		// if (1 < card.value < 7) {  //function to check for 2,3,4,5,6
+		// 	setCount(count+1)
+		// }
 
 		// add card to hand
 		setUsersHand([...usersHand, card]);
@@ -405,6 +415,7 @@ const Blackjack = () => {
 
 		setDeck(updatedDeck); // set new cards in deck
 		setUserSum(userSum + card.value)
+		
 
 		if (userSum.value > 21) {
 			setEndRound(!endRound) //sets gameover to true
@@ -412,22 +423,34 @@ const Blackjack = () => {
 		}
 	}
 
+	function checkValue(card) {
+	
+		if (card.value > 9 || card.value < 2) { // function to check for 10, J, Q, K, A by value. SetCount -1
+			setCount(count-1)
+		}
+		if (1 < card.value < 7) {  //function to check for 2,3,4,5,6
+			setCount(count+1)
+		}
+	}
+
 	function dealCards() {   //function to deal one card user, one dealer, one user, one dealer card face down (make card hidden in html css)
 		// add card to user
-
-	
 		// store a card value with userHit() User draws 1 card using userHit,
+		wait1sec();
 		const userCard1 = deck[0]
+		checkValue(userCard1)
 		console.log(userCard1)
 		setUsersHand([...usersHand, userCard1])
+		wait1sec();
+		
 
 			// setUserSum(...userSum + userCard1.value) - setUserSum is run on userHit, should be adding value already. 
-
+		wait1sec();
 		const dealerCard1 = deck[1]
 		console.log(dealerCard1)
 		setDealersHand([...dealersHand, dealerCard1])
 			// setDealerSum(...dealerSum + dealerCard1.value)
-
+		wait1sec();
 		const userCard2 = deck[2]
 		setUsersHand([...usersHand, userCard2])
 		console.log(userCard2)
@@ -476,16 +499,18 @@ const Blackjack = () => {
 		while(dealersHand.value < 17) {
 			dealerHit();
 		}
-		return endRound();
+		return endRoundHandler();
 	}
 
-	useEffect(() => {
-		shuffleCards()
-	}, [])
+	// useEffect(() => {
+	// 	shuffleCards()
+	// }, [])
 
 	function playBlackjack() {
 		// shuffle the deck
+		wait1sec();
 		shuffleCards();
+
 		dealCards();
 
 	}
@@ -533,7 +558,8 @@ const Blackjack = () => {
 						<h3>Running Count: {count}</h3>
 					</div>
 					<div className="outline deck-count-container">
-						<h3>Cards in Deck: </h3>
+						<h3>Dealer Hand: {dealerSum.value}</h3>
+						<h3>Player Hand: {userSum.value}</h3>
 					</div>
 				</div>
 
@@ -563,23 +589,22 @@ const Blackjack = () => {
 
 
             <div className="outline dealer-cards-container">
-               <h3></h3>
-					<div className="dealer-card">Dealer Cards
+					<h3>Dealer Cards</h3>
+					<div className="dealer-card">
 						{dealersHand.map((deck) => (
-							<img key={deck.name} src={deck.image} value={deck.value} className="playing=card"/>
+							<img key={deck.name} id={deck.name} src={deck.image} value={deck.value} className="playing=card"/>
 							// <p key={card.name}>{card.name}</p>
 						))}
+
 					</div>
 				</div>
 
 				<div className="outline player-cards-container">
-					<h3></h3>
-					<div className="player-card" >Player Cards
+					<h3>Player Cards</h3>
+					<div className="player-card" >
 						{usersHand.map((deck) => (
-							<img key={deck.name} src={deck.image} value={deck.value} className="playing=card" />
-
-						))}
-
+							<img key={deck.name} id={deck.name} src={deck.image} value={deck.value} className="playing=card" />
+							))}
 					</div>
 				</div>
 			</section>
