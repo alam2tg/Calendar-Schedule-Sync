@@ -5,6 +5,7 @@
 // import {Link} from 'react-router-dom';
 // import React from 'react';
 import "../styles/Landing.css";
+import logo from '../assets/images/black-jack-logo.png'
 
 import Auth from  "../utils/auth"
 
@@ -27,7 +28,7 @@ const LandingPage = () => {
         </nav>
         <div className="landing-content">
           <h1 className="landing-title">WELCOME TO</h1>
-          <img src="src/assets/images/black-jack-logo.png" alt="Blackjack Logo" className="logo" />
+          <img src={logo} alt="Blackjack Logo" className="logo" />
         </div>
       </div>
     );
