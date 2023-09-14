@@ -352,6 +352,26 @@ const Blackjack = () => {
 		}, 1000)
 	}
 
+	const handleIncrement = () => {
+		setCount(count + 1);
+	};
+  
+	// Helper function to handle when the user clicks decrement
+	// Does not allow count value to go negative
+	const handleDecrement = () => {
+		setCount((count - 1));
+	}
+
+	function checkSum() {
+		if (dealerSum > 21) {
+			setLoseCount(loseCount + 1) 
+			setEndRound(!endRound) //sets gameover to true
+			endRoundHandler();
+			}
+		}
+	
+	
+
 	// create a function to shuffle the deck and get a random card
 	function shuffleCards() {
 		const tempDeck = [...deck]
@@ -363,12 +383,6 @@ const Blackjack = () => {
 		}
 		setDeck(tempDeck);
 	}
-	// // created this function to visualize useState better
-	// function drawSingleCard() {
-	// 	const singleCard = deck.slice(0)
-	// 	setDeck.slice(singleCard)
-	// 	return singleCard
-	// }
 
 	function dealerHit() {
 		//rearranged code, stored drawn card into variable for accuracy
@@ -391,7 +405,8 @@ const Blackjack = () => {
 
 		setDeck(updatedDeck);
 		/// check aces??
-		setDealerSum(dealerSum + card.value)
+		setDealerSum(dealerSum + card.value);
+
 	}
 
 
@@ -400,31 +415,30 @@ const Blackjack = () => {
 		//remove card from deck
 		const card = deck[0]
 		console.log(card)
+
+		checkValue(card)
 		// if (card.value > 9 || card.value < 2) { // function to check for 10, J, Q, K, A by value. SetCount -1
-		// 	setCount(count-1)
+		// 	handleDecrement();
 		// }
 		// if (1 < card.value < 7) {  //function to check for 2,3,4,5,6
-		// 	setCount(count+1)
+		// 	handleIncrement();
 		// }
 
 		// add card to hand
 		setUsersHand([...usersHand, card]);
+		setUserSum(userSum + card.value)
 
 		const updatedDeck = deck.filter(deck => deck !== card)
 		console.log(updatedDeck)
 
 		setDeck(updatedDeck); // set new cards in deck
-		setUserSum(userSum + card.value)
+		checkSum()
 		
 
-		if (userSum.value > 21) {
-			setEndRound(!endRound) //sets gameover to true
-			endRoundHandler();
-		}
+
 	}
 
 	function checkValue(card) {
-	
 		if (card.value > 9 || card.value < 2) { // function to check for 10, J, Q, K, A by value. SetCount -1
 			setCount(count-1)
 		}
@@ -442,6 +456,7 @@ const Blackjack = () => {
 		console.log(userCard1)
 		setUsersHand([...usersHand, userCard1])
 		wait1sec();
+		setUserSum(userSum + userCard1.value)
 		
 
 			// setUserSum(...userSum + userCard1.value) - setUserSum is run on userHit, should be adding value already. 
@@ -449,10 +464,12 @@ const Blackjack = () => {
 		const dealerCard1 = deck[1]
 		console.log(dealerCard1)
 		setDealersHand([...dealersHand, dealerCard1])
+		setDealerSum(dealerSum + dealerCard1.value)
 			// setDealerSum(...dealerSum + dealerCard1.value)
 		wait1sec();
 		const userCard2 = deck[2]
 		setUsersHand([...usersHand, userCard2])
+		setUserSum(userSum + userCard2.value)
 		console.log(userCard2)
 			// setUserSum(...userSum + userCard2.value)
 
@@ -469,8 +486,8 @@ const Blackjack = () => {
 
 	function endRoundHandler() {
 		if (endRound == true) {	//gets called by stateful value
-			const usersHandValue = usersHand
-			const dealersHandValue = dealersHand
+			const usersHandValue = userSum
+			const dealersHandValue = dealerSum
 			if (usersHandValue > 21) {
 				setLoseCount(loseCount+1)
 				alert("Tough luck!")
@@ -492,11 +509,15 @@ const Blackjack = () => {
 			else {
 				return alert("It's a draw!")
 			}
+			
 		}
 	}
 
 	function stand() {
-		while(dealersHand.value < 17) {
+		if (!endRound)
+		dealerHit();
+
+		while(dealerSum.value < 17) {
 			dealerHit();
 		}
 		return endRoundHandler();
@@ -510,40 +531,12 @@ const Blackjack = () => {
 		// shuffle the deck
 		wait1sec();
 		shuffleCards();
-
 		dealCards();
 
 	}
 
-	// function getValue(card) {
-	//     // i.e split method allows 5-D to give us an array ["5", "D"]
-	//     let data = card.split("-");
-	//     // the first index of that array is the value
-	//     let value = data[0];
-
-
-	//     // J, Q, and K have a value of 10 and not a number
-	//     // A has a value of 11 and not a number
-	//     if (isNaN(value)) {
-	//         if (value == "A") {
-	//             return 11;
-	//         }
-	//         return 10;
-	//     }
-	//     // otherwise return value of digits
-	//     return parseInt(value);  
-	// }
-
-	// A has a value of 1, if not the value is 0
-	// function checkAce(card) {
-	//     if (card[0] == "A") {
-	//         return 1;
-	//     }
-	//     return 0;
-	// }
-
-
 	// HTML Template to create blackjack page, style with traditional CSS
+
 	return (
 		<div className="outline blackjack">
 
@@ -558,8 +551,8 @@ const Blackjack = () => {
 						<h3>Running Count: {count}</h3>
 					</div>
 					<div className="outline deck-count-container">
-						<h3>Dealer Hand: {dealerSum.value}</h3>
-						<h3>Player Hand: {userSum.value}</h3>
+						<h3>Dealer Hand: {dealerSum}</h3>
+						<h3>Player Hand: {userSum}</h3>
 					</div>
 				</div>
 
