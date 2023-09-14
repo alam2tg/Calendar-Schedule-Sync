@@ -26,21 +26,15 @@ function Header () {
       <Navbar className='header'>
         <Container fluid>
           <Navbar.Brand className='header-nav-item' style={{color:'white', fontSize:'24px'}} as={Link} to='/'>
-            BACK TO LANDING
+            LANDING
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
             <Nav className='ml-auto d-flex'>
-              {/* <Nav.Link as={Link} to='/blackjack'>
-                
-              </Nav.Link> */}
-              {/* if user is logged in show saved books and logout */}
+              
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/blackjack'>
-                    Go To Game
-                  </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link style={{color:'white', fontSize:'24px'}} onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
                 <Nav.Link className='header-nav-item' style={{color:'white', fontSize:'24px'}} onClick={() => setShowModal(true)}>LOG IN / SIGN UP</Nav.Link>

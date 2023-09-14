@@ -527,8 +527,10 @@ const Blackjack = () => {
 				</div>
 
 
-				<div className="outline dealer-cards-container">
-					<h3>Dealer</h3>
+                <div className="outline dealer-cards-container">
+
+                    {/* <h3>Dealer</h3>}
+
 					<div className="dealer-card">
 						{dealersHand.map((deck) => (
 							<img key={deck.name} src={deck.image} />
@@ -553,5 +555,4 @@ const Blackjack = () => {
 };
 
 export default Blackjack;
-
 

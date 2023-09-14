@@ -1,11 +1,14 @@
 //tutorial page
 
+import Auth from  "../utils/auth"
 import {Link} from 'react-router-dom';
 import '../styles/Tutorial.css';
 
 const Tutorial = () => {
     return (
-        <div className="outline blackjack">
+        <>
+        { Auth.loggedIn() ? (
+            <div className="outline blackjack">
             
             <h1 className="blackjack-header">Welcome to the Blackjack Page</h1>
             <Link to="/home">
@@ -54,6 +57,13 @@ const Tutorial = () => {
                 </div>
             </section>
         </div>
+        ) : (
+            <div>
+                <h2>You must sign-up/login!</h2>
+            </div>
+        ) }
+        </>
+        
     );
 };
 
