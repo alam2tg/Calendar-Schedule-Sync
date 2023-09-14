@@ -6,6 +6,18 @@ import { useMutation } from '@apollo/client';
 
 import Auth from '../utils/auth';
 
+const style  =  {
+
+  inputFields: {
+    background: 'red',
+    color: 'white',
+  },
+  inputLabels: {
+    color: 'grey',
+  }
+
+};
+
 const SignupPage = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
@@ -63,8 +75,11 @@ const SignupPage = () => {
         </Alert>
 
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='username'>Username</Form.Label>
+          <Form.Label
+          style={style.inputLabels} 
+          htmlFor='username'>Username</Form.Label>
           <Form.Control
+          style={style.inputFields}
             type='text'
             placeholder='Your username'
             name='username'
@@ -76,8 +91,11 @@ const SignupPage = () => {
         </Form.Group>
 
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='email'>Email</Form.Label>
+          <Form.Label
+          style={style.inputLabels}
+           htmlFor='email'>Email</Form.Label>
           <Form.Control
+          style={style.inputFields}
             type='email'
             placeholder='Your email address'
             name='email'
@@ -89,8 +107,11 @@ const SignupPage = () => {
         </Form.Group>
 
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='password'>Password</Form.Label>
+          <Form.Label
+          style={style.inputLabels}
+           htmlFor='password'>Password</Form.Label>
           <Form.Control
+          style={style.inputFields}
             type='password'
             placeholder='Your password'
             name='password'
@@ -103,7 +124,7 @@ const SignupPage = () => {
         <Button
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'
-          variant='success'>
+          variant='danger'>
           Submit
         </Button>
       </Form>
