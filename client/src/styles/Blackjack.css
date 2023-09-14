@@ -5,6 +5,7 @@ width: auto;
 }
 /* Style for the outline container */
 .outline {
+
   /* border: 2px solid #333; Add a border to the outline */
   padding: 20px; /* Add some padding for spacing */
   margin: 10px; /* Add margin for separation */
@@ -43,6 +44,7 @@ width: auto;
   text-decoration: none;
   color: #333;
   font-weight: bold;
+
   
 }
 
