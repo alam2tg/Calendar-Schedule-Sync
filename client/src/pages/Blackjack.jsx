@@ -371,10 +371,12 @@ const Blackjack = () => {
 	// }
 
 	function dealerHit(){
+		//rearranged code, stored drawn card into variable for accuracy
 		// add card to hand
-		setDealersHand([...dealersHand, deck[0]]);
-		//remove card from deck
 		const card = deck[0]
+		setDealersHand([...dealersHand, card]);
+		//remove card from deck
+
 		setDeck(deck.slice(1, deck.length));
 		/// check aces??
 		setDealerSum(dealerSum+ card.value)
@@ -382,42 +384,42 @@ const Blackjack = () => {
 
 
 	function userHit() {
-		// add card to hand
-		setUsersHand([...usersHand, deck[0]]);
+	//re-arranged format to store a variable within function 
 		//remove card from deck
 		const card = deck[0]
-		setDeck(deck.slice(1, deck.length));
+
+		// add card to hand
+		setUsersHand([...usersHand, card]);
+
+		setDeck(deck.slice(card, deck.length));
 		/// check aces??
+
 		setUserSum(userSum + card.value)
 	}
 
 	function dealCards() {   //function to deal one card user, one dealer, one user, one dealer card face down (make card hidden in html css)
 		// add card to user 
 	
-		const userCard1 = deck.userHit()
+		// store a card value with userHit() User draws 1 card using userHit,
+		const userCard1 = deck.userHit(0)
 		setUsersHand([...usersHand, userCard1])
+			// setUserSum(...userSum + userCard1.value) - setUserSum is run on userHit, should be adding value already. 
 
-		const dealerCard1 = deck.dealerHit()
+		const dealerCard1 = deck.dealerHit(1)
 		setDealersHand([...dealersHand, dealerCard1])
+			// setDealerSum(...dealerSum + dealerCard1.value)
 
-		const userCard2 = deck.userHit()
+		const userCard2 = deck.userHit(2)
 		setUsersHand([...usersHand, userCard2])
+			// setUserSum(...userSum + userCard2.value)
 
-		const dealerCard2 = deck.dealerHit()
+		const dealerCard2 = deck.dealerHit(3)
 		setDealersHand([...dealersHand, dealerCard2])
+			// setDealerSum(...dealerSum + dealerCard2.value)
 
 
-		setDeck(deck.splice(1, deck.length));
-		console.log(setDeck)
-
-
-		setUserSum(...userSum + userCard1.value)
-		setDealerSum(...dealerSum + dealerCard1.value)
-
-		setUserSum(...userSum + userCard2.value)
-		setDealerSum(...dealerSum + dealerCard2.value)
-
-
+		// setDeck(deck.slice(4, deck.length)); not sure if required, already setting deck in userHit / dealerHit
+		console.log(usersHand, dealersHand)
 	}
 
 
@@ -434,12 +436,9 @@ const Blackjack = () => {
 	function playBlackjack() {
 		// shuffle the deck
 		shuffleCards();
-		//deal cards
 
 		dealCards();
-		setUsersHand(deck.slice(0, 2))
-		setDealersHand(deck.slice(2, 4))
-		setDeck(deck.slice(4))
+
 	}
 
 	// function getValue(card) {
@@ -470,16 +469,16 @@ const Blackjack = () => {
 	// }
 
 	// reduce total sum by changed ace number from 11 to 1 as many times as possible
-	function reduceAce() {
-		while (userSum > 21 && userAceCount > 0) {
-			setUserSum(userSum - 10);
-			setUserAceCount(userAceCount - 1);
-		}
-		while (dealerSum > 21 && dealerAceCount > 0) {
-			setDealerSum(dealerSum - 10);
-			setDealerAceCount(userAceCount - 1);
-		}
-	}
+	// function reduceAce() {
+	// 	while (userSum > 21 && userAceCount > 0) {
+	// 		setUserSum(userSum - 10);
+	// 		setUserAceCount(userAceCount - 1);
+	// 	}
+	// 	while (dealerSum > 21 && dealerAceCount > 0) {
+	// 		setDealerSum(dealerSum - 10);
+	// 		setDealerAceCount(userAceCount - 1);
+	// 	}
+	// }
 
 	// HTML Template to create blackjack page, style with traditional CSS
 	return (
