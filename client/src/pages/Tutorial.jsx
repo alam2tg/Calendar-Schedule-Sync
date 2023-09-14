@@ -26,7 +26,7 @@ const Tutorial = () => {
         },
         {
             element: '#dealer',
-            intro: 'The dealer\'s hand is displayed here. You can only see one of their cards until you decide to stay. The dealer can then decide whether to hit or stay. If you bust, you never get to see their second card. If the dealer busts, you win.',
+            intro: 'The dealer\'s hand is displayed here. You can only see one of their cards until you decide to stay. The dealer flips their decond card and either wins or must hit to attempt to beat you. If you bust, you never get to see their second card. If the dealer busts, you win.',
         },
         {
             element: '#player',
