@@ -394,6 +394,10 @@ const Blackjack = () => {
 		setDealerSum(dealerSum + card.value)
 	}
 
+	const [hitButtonVisible, setHitButtonVisible] = useState(false);
+	const [standButtonVisible, setStandButtonVisible] = useState(false);
+	const [dealButtonVisible, setDealButtonVisible] = useState(true);
+
 
 	function userHit() {
 	//re-arranged format to store a variable within function 
@@ -421,6 +425,9 @@ const Blackjack = () => {
 			setEndRound(!endRound) //sets gameover to true
 			endRoundHandler();
 		}
+		setHitButtonVisible(false);
+		setStandButtonVisible(false);
+		setDealButtonVisible(true);
 	}
 
 	function checkValue(card) {
@@ -499,8 +506,12 @@ const Blackjack = () => {
 		while(dealersHand.value < 17) {
 			dealerHit();
 		}
+		setHitButtonVisible(false);
+		setStandButtonVisible(false);
+		setDealButtonVisible(true);
 		return endRoundHandler();
 	}
+
 
 	// useEffect(() => {
 	// 	shuffleCards()
@@ -512,6 +523,9 @@ const Blackjack = () => {
 		shuffleCards();
 
 		dealCards();
+		setHitButtonVisible(true);
+		setStandButtonVisible(true);
+		setDealButtonVisible(false);
 
 	}
 
@@ -577,13 +591,13 @@ const Blackjack = () => {
 
 				<div className="outline buttons-container">
 					<div>
-						<button id="hit-button" onClick={userHit}><h3>Hit</h3></button>
+						<button id="hit-button" onClick={userHit} style={{ display: hitButtonVisible ? 'block' : 'none' }}><h3>Hit</h3></button>
 					</div>
 					<div>
-						<button id="stand-button" onClick={stand}><h3>Stand</h3></button>
+						<button id="stand-button" onClick={stand} style={{ display: standButtonVisible ? 'block' : 'none' }}><h3>Stand</h3></button>
 					</div>
 					<div>
-						<button id="deal-button" onClick={playBlackjack}><h3>Deal New Hand</h3></button>
+						<button id="deal-button" onClick={playBlackjack} style={{ display: dealButtonVisible ? 'block' : 'none' }}><h3>Deal New Hand</h3></button>
 					</div>
 				</div>
 
