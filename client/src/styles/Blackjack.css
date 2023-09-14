@@ -14,8 +14,13 @@ img {
   
   /* Style for the Blackjack page */
   .blackjack {
+<<<<<<< HEAD
     /* /* display: flex; */
     flex-direction: column; */
+=======
+    display: grid;
+    /* flex-direction: column; */
+>>>>>>> 82afc07409b1151b90cea62270dae4b5c20944c8
     padding-bottom: 40px;
     align-items: center;
     justify-content: center;
@@ -33,7 +38,11 @@ img {
     margin-bottom: 20px;
     color: rgb(120,100,80);
     font-weight: bolder;
+<<<<<<< HEAD
     height: auto;
+=======
+    text-align: center;
+>>>>>>> 82afc07409b1151b90cea62270dae4b5c20944c8
   }
   
   /* Style for the navigation link */
