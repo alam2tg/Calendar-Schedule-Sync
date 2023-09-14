@@ -2,7 +2,7 @@
 
 import Auth from  "../utils/auth"
 import {Link} from 'react-router-dom';
-import '../styles/Tutorial.css';
+import '../styles/Blackjack.css';
 
 const Tutorial = () => {
     return (
@@ -17,12 +17,15 @@ const Tutorial = () => {
 
             <section className="game-container">
 
-                <div className="outline running-count-container small-container">
-                    <h3>Running Count: </h3>
-                </div>
+                <div className="count-container">
+                    <div className="outline running-count-container small-container">
+                        <h3>Running Count: </h3>
+                    </div>
+                
 
-                <div className="outline deck-count-container">
-                    <h3>Cards in Deck: </h3>
+                    <div className="outline deck-count-container">
+                        <h3>Cards in Deck: </h3>
+                    </div>
                 </div>
 
                 <div className="score-container ">
@@ -34,7 +37,7 @@ const Tutorial = () => {
                     </header>
                 </div>
 
-                <div className="outline deal-container"></div>
+                {/* <div className="outline deal-container"></div> */}
 
                 <div className="outline buttons-container">
                     <div>
@@ -50,10 +53,10 @@ const Tutorial = () => {
 
 
                 <div className="outline dealer-cards-container">
-                    <h3>Dealer Cards Container</h3>
+                    <h3>Dealer</h3>
                 </div>
                 <div className="outline player-cards-container">
-                    <h3>Player Cards Container</h3>
+                    <h3>Player</h3>
                 </div>
             </section>
         </div>
