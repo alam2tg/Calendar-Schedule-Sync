@@ -22,7 +22,7 @@ const Blackjack = () => {
 	//create function that analyzes value, then changes counter based on value
 
 	//not sure if this needs to be tracked
-	const [gameOver, setGameOver] = useState(false);
+	const [endRound, setEndRound] = useState(false);
 
 	// represents the cards in deck as an array
 	const [deck, setDeck] = useState([
@@ -341,17 +341,8 @@ const Blackjack = () => {
 	//will represent when it's the user's turn
 	// const [turn, setTurn] = useState(true);
 
-	const [win, setWin] = useState(0)
-	const [lose ,setLose] = useState(0)
-
-
-	// on window load we need the deck to be built
-	// window.onload = function() {
-	//     cardContainer();
-	//     shuffleCards();
-	//     // playBlackjack();
-	// } 
-
+	const [winCount, setWinCount] = useState(0)
+	const [loseCount ,setLoseCount] = useState(0)
 
 	// create a function to shuffle the deck and get a random card
 	function shuffleCards() {
@@ -397,8 +388,12 @@ const Blackjack = () => {
 		console.log(updatedDeck)
 		setDeck(updatedDeck);
 		setUserSum(userSum + card.value)
+
+		if (userSum.value > 21) {
+			setEndRound(!endRound) //sets gameover to true
+			endRoundHandler();
+		}
 	}
-	console.log(deck)
 
 	// function hitButton() {
 	// 	userHit()
@@ -452,11 +447,36 @@ const Blackjack = () => {
 	// }
 
 
-	// function endRound() {
-	// 	//gets called by bust or dealer stand
-	// 	//show results
-	// 	//ask to play agin?
-	// }
+	function endRoundHandler() {
+		if (endRound == true) {	//gets called by stateful value
+			const usersHandValue = usersHand
+			const dealersHandValue = dealersHand
+			if (usersHandValue > 21) {
+				setLoseCount(loseCount+1)
+				alert("Tough luck!")
+			} 
+			else if (dealersHandValue > 21) {
+				setWinCount(winCount+1)
+				alert("Well played!")
+			}
+			
+			else if (usersHandValue > dealersHandValue) {
+				setWinCount(winCount+1)
+				alert("Nice hand!")
+
+			}
+			else if (usersHandValue < dealersHandValue) {
+				setLoseCount(loseCount+1)
+				alert("Dealers win hands too!")
+			}
+			else {
+				return alert("It's a draw!")
+			}
+		
+
+
+		}
+	}
 
 	useEffect(() => {
 		shuffleCards()
