@@ -9,6 +9,19 @@ import LoginPage from './Login';
 import Auth from '../utils/auth';
 
 import '../styles/header.css'
+
+const style  =  {
+
+  mainContainer: {
+    background: 'black',
+
+  },
+  navLinkBtns: {
+    background: 'red',
+  }
+
+};
+
 // add onClick to  logout button
 function Header () {
 
@@ -51,19 +64,30 @@ function Header () {
         aria-labelledby='signup-modal'>
         {/* tab container to do either signup or login component */}
         <Tab.Container defaultActiveKey='login'>
-          <Modal.Header closeButton>
-            <Modal.Title id='signup-modal'>
+          <Modal.Header 
+          style={style.mainContainer}
+          closeButton>
+            <Modal.Title 
+            id='signup-modal'>
               <Nav variant='pills'>
-                <Nav.Item>
-                  <Nav.Link eventKey='login' className="login-link">Login</Nav.Link>
+                <Nav.Item
+                
+                >
+                  <Nav.Link 
+                  style={style.navLinkBtns}
+                  eventKey='login' className="login-link">Login</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey='signup' className="signup-link">Sign Up</Nav.Link>
+                  <Nav.Link
+                  style={style.navLinkBtns}
+                   eventKey='signup' className="signup-link">Sign Up</Nav.Link>
                 </Nav.Item>
               </Nav>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body
+          style={style.mainContainer}
+          >
             <Tab.Content>
               <Tab.Pane eventKey='login'>
                 <LoginPage handleModalClose={() => setShowModal(false)} />
