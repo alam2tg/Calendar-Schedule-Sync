@@ -366,6 +366,14 @@ const Blackjack = () => {
 		//rearranged code, stored drawn card into variable for accuracy
 		// add card to hand
 		const card = deck[0]
+
+		if (card.value > 9 || card.value < 2) { // function to check for 10, J, Q, K, A by value. SetCount -1
+			setCount(count-1)
+		}
+		if (1 < card.value < 7) {  //function to check for 2,3,4,5,6
+			setCount(count+1)
+		}
+
 		setDealersHand([...dealersHand, card]);
 		//remove card from deck
 		const updatedDeck = deck.filter(deck => deck !== card)
@@ -380,13 +388,22 @@ const Blackjack = () => {
 	function userHit() {
 	//re-arranged format to store a variable within function 
 		//remove card from deck
-		const card = deck.pop();
+		const card = deck[0]
+
+		if (card.value > 9 || card.value < 2) { // function to check for 10, J, Q, K, A by value. SetCount -1
+			setCount(count-1)
+		}
+		if (1 < card.value < 7) {  //function to check for 2,3,4,5,6
+			setCount(count+1)
+		}
 
 		// add card to hand
 		setUsersHand([...usersHand, card]);
+
 		const updatedDeck = deck.filter(deck => deck !== card)
 		console.log(updatedDeck)
-		setDeck(updatedDeck);
+
+		setDeck(updatedDeck); // set new cards in deck
 		setUserSum(userSum + card.value)
 
 		if (userSum.value > 21) {
@@ -394,11 +411,6 @@ const Blackjack = () => {
 			endRoundHandler();
 		}
 	}
-
-	// function hitButton() {
-	// 	userHit()
-	// 	dealerHit
-	// }
 
 	function dealCards() {   //function to deal one card user, one dealer, one user, one dealer card face down (make card hidden in html css)
 		// add card to user
@@ -431,13 +443,6 @@ const Blackjack = () => {
 		// setDeck(deck.slice(4, deck.length)); not sure if required, already setting deck in userHit / dealerHit
 		console.log(usersHand, dealersHand)
 	}
-
-
-
-	// function count() {
-
-	// }
-
 
 	function endRoundHandler() {
 		if (endRound == true) {	//gets called by stateful value
