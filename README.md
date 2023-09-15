@@ -1,38 +1,42 @@
 # Calendar-Schedule-Sync
 
 ## Table of Contents
-- [Description](#description)
-- [Learning Points](#learning-points)
-- [Features](#features)
-- [Technology Used](#technology-used)
-- [How to Get Started](#how-to-get-started)
-- [Deployment](#deployment)
-- [Authors](#authors)
-- [Contributing](#contributing)
-- [License](#license)
+
+-  [Description](#description)
+-  [Learning Points](#learning-points)
+-  [Features](#features)
+-  [Technology Used](#technology-used)
+-  [How to Get Started](#how-to-get-started)
+-  [Deployment](#deployment)
+-  [Authors](#authors)
+-  [Contributing](#contributing)
+-  [License](#license)
 
 ## Description
-This application is a group calendar that shares visibility of every members' schedule. This enables users to create events for a team, and improve scheduling between users from the enhanced visibility.
 
+This application is a group calendar that shares visibility of every members' schedule. This enables users to create events for a team, and improve scheduling between users from the enhanced visibility.
 
 <br>
 
 ## Learning Points
 
-- 
--
--
+-  Creating functions for the specific purpose of calling stateful values to create leaner code.
+-  IntroJS library as an introductory guide for application use, improving the user experience.
+-  Connecting to back-end servers using middleware.
+-  Deploying applications with MongoDB Atlas.
+-  Using React + CSS grid to concurrently build front-end functionality and design.
 
 <br>
 
 ## Features
 
-- **User Profiles:** 
-
+-  Login/Signup to create profile and save game progress
+-  Tutorial to teach the game
+-  Blackjack game with Counter function to learn card-counting process.
 
 <br>
 
-## Technology Used 
+## Technology Used
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 <br>
@@ -61,27 +65,30 @@ This application is a group calendar that shares visibility of every members' sc
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 <br>
 
-
-
 <br>
 
 ## How to Get Started
 
-1. 
-<br>
+1. Sign up using the Login/Sign Up button at the Top Right
+2. Navigate the page through the navbar
+3. Click on 'tutorial' from the navbar, and learn the applications interface playing Blackjack
+4. Click on 'Blackjack' from the navbar
+5. Click 'deal' to start the game, 'hit' to receive another card, and 'stand' to end your turn.
+6. Consider the 'count' at the top left to determine your odds of winning.
+   <br>
 
 ## Deployment
 
-Website URL: [enDEVors](https://endevor-3d604fa0490c.herokuapp.com/)
-
-![alt text](./public/assets/endevors-home.png)
+Website URL: [Blackjack Card Counter](https://blackjack-card-counter-2023-1f1cb4da18a4.herokuapp.com/)
 
 <br>
 
 ## Authors
 
-### *__Aaron Lam__*
+### _**Aaron Lam**_
+
 ---
+
 _Currently a student in the UC Berkeley Full Stack Coding Bootcamp. Contact Below:_
 
 <br>
@@ -106,8 +113,10 @@ _Currently a student in the UC Berkeley Full Stack Coding Bootcamp. Contact Belo
 [https://github.com/alam2tg](https://github.com/alam2tg)
 <br>
 
-### *__Adrian Frausto__*
+### _**Adrian Frausto**_
+
 ---
+
 _Currently a student in the UC Berkeley Full Stack Coding Bootcamp. Contact Below:_
 
 <br>
@@ -132,9 +141,10 @@ _Currently a student in the UC Berkeley Full Stack Coding Bootcamp. Contact Belo
 [https://github.com/alam2tg](https://github.com/alam2tg)
 <br>
 
+### _**Jesus Reyes**_
 
-### *__Jesus Reyes__*
 ---
+
 _Currently a student in the UC Berkeley Full Stack Coding Bootcamp. Contact Below:_
 
 <br>
@@ -159,9 +169,10 @@ _Currently a student in the UC Berkeley Full Stack Coding Bootcamp. Contact Belo
 [https://github.com/](https://github.com/)
 <br>
 
+### _**Theodore Okeke**_
 
-### *__Theodore Okeke__*
 ---
+
 _Currently a student in the UC Berkeley Full Stack Coding Bootcamp. Contact Below:_
 
 <br>
@@ -186,11 +197,9 @@ _Currently a student in the UC Berkeley Full Stack Coding Bootcamp. Contact Belo
 [https://github.com/](https://github.com/)
 <br>
 
-
 ## Sources
 
-* [badges](https://github.com/Ileriayo/markdown-badges)
-
+-  [badges](https://github.com/Ileriayo/markdown-badges)
 
 ## License
 
