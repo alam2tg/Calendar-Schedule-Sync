@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 // import PlayerHand from '../components/PlayerHand'
 
 const Blackjack = () => {
+
 	// represents cards
 	const [usersHand, setUsersHand] = useState([])   // holds cards
 	const [dealersHand, setDealersHand] = useState([])  
@@ -28,79 +29,79 @@ const Blackjack = () => {
 	// represents the cards in deck as an array
 	const [deck, setDeck] = useState([
 		{
-			name: '2-C',
+			name: '2-Clubs',
 			value: 2,
 			count: 1,
 			image: cardImages.C2,
 		},
 		{
-			name: '3-C',
+			name: '3-Clubs',
 			value: 3,
 			count: 1,
 			image: cardImages.C3,
 		},
 		{
-			name: '4-C',
+			name: '4-Clubs',
 			value: 4,
 			count: 1,
 			image: cardImages.C4,
 		},
 		{
-			name: '5-C',
+			name: '5-Clubs',
 			value: 5,
 			count: 1,
 			image: cardImages.C5,
 		},
 		{
-			name: '6-C',
+			name: '6-Clubs',
 			value: 6,
 			count: 1,
 			image: cardImages.C6,
 		},
 		{
-			name: '7-C',
+			name: '7-Clubs',
 			value: 7,
 			count: 0,
 			image: cardImages.C7,
 		},
 		{
-			name: '8-C',
+			name: '8-Clubs',
 			value: 8,
 			count: 0,
 			image: cardImages.C8,
 		},
 		{
-			name: '9-C',
+			name: '9-Clubs',
 			value: 9,
 			count: 0,
 			image: cardImages.C9,
 		},
 		{
-			name: '10-C',
+			name: '10-Clubs',
 			value: 10,
 			count: -1,
 			image: cardImages.C10,
 		},
 		{
-			name: 'J-C',
+			name: 'J-Clubs',
 			value: 10,
 			count: -1,
 			image: cardImages.CJ,
 		},
 		{
-			name: 'Q-C',
+			name: 'Q-Clubs',
 			value: 10,
 			count: -1,
 			image: cardImages.CQ,
 		},
 		{
-			name: 'K-C',
+			name: 'K-Clubs',
 			value: 10,
 			count: -1,
 			image: cardImages.CK,
 		},
 		{
-			name: 'A-C',
+			name: 'A-Clubs',
 			value: 11,
 			count: -1,
 			image: cardImages.CA,
@@ -341,9 +342,10 @@ const Blackjack = () => {
 
 	//will represent when it's the user's turn
 	// const [turn, setTurn] = useState(true);
-
 	const [winCount, setWinCount] = useState(0)
 	const [loseCount ,setLoseCount] = useState(0)
+
+	
 
 	// function to wait 1 second
 	function wait1sec() {
@@ -417,13 +419,6 @@ const Blackjack = () => {
 		console.log(card)
 
 		checkValue(card)
-		// if (card.value > 9 || card.value < 2) { // function to check for 10, J, Q, K, A by value. SetCount -1
-		// 	handleDecrement();
-		// }
-		// if (1 < card.value < 7) {  //function to check for 2,3,4,5,6
-		// 	handleIncrement();
-		// }
-
 		// add card to hand
 		setUsersHand([...usersHand, card]);
 		setUserSum(userSum + card.value)
@@ -433,9 +428,6 @@ const Blackjack = () => {
 
 		setDeck(updatedDeck); // set new cards in deck
 		checkSum()
-		
-
-
 	}
 
 	function checkValue(card) {
@@ -448,39 +440,24 @@ const Blackjack = () => {
 	}
 
 	function dealCards() {   //function to deal one card user, one dealer, one user, one dealer card face down (make card hidden in html css)
-		// add card to user
-		// store a card value with userHit() User draws 1 card using userHit,
-		wait1sec();
-		const userCard1 = deck[0]
+	// add card to user // store stateful values as they populate
+		const userCard1 = deck[0]		
 		checkValue(userCard1)
 		console.log(userCard1)
 		setUsersHand([...usersHand, userCard1])
-		wait1sec();
 		setUserSum(userSum + userCard1.value)
-		
 
-			// setUserSum(...userSum + userCard1.value) - setUserSum is run on userHit, should be adding value already. 
-		wait1sec();
 		const dealerCard1 = deck[1]
+
 		console.log(dealerCard1)
 		setDealersHand([...dealersHand, dealerCard1])
 		setDealerSum(dealerSum + dealerCard1.value)
-			// setDealerSum(...dealerSum + dealerCard1.value)
-		wait1sec();
+
 		const userCard2 = deck[2]
+
 		setUsersHand([...usersHand, userCard2])
 		setUserSum(userSum + userCard2.value)
 		console.log(userCard2)
-			// setUserSum(...userSum + userCard2.value)
-
-		// const dealerCard2 = deck[3]
-		// dealerCard2.setAttribute("id","dealer-card-2")
-		// setDealersHand([...dealersHand, dealerCard2])
-		// console.log(dealerCard2)
-		// 	// setDealerSum(...dealerSum + dealerCard2.value)
-
-
-		// setDeck(deck.slice(4, deck.length)); not sure if required, already setting deck in userHit / dealerHit
 		console.log(usersHand, dealersHand)
 	}
 
@@ -529,7 +506,7 @@ const Blackjack = () => {
 
 	function playBlackjack() {
 		// shuffle the deck
-		wait1sec();
+
 		shuffleCards();
 		dealCards();
 
@@ -569,26 +546,21 @@ const Blackjack = () => {
 				{/* <div className="outline deal-container"></div> */}
 
 				<div className="outline buttons-container">
-					<div>
-						<button id="hit-button" onClick={userHit}><h3>Hit</h3></button>
-					</div>
-					<div>
-						<button id="stand-button" onClick={stand}><h3>Stand</h3></button>
-					</div>
-					<div>
-						<button id="deal-button" onClick={playBlackjack}><h3>Deal New Hand</h3></button>
-					</div>
+					<div><button id="hit-button" onClick={userHit}><h3>Hit</h3></button></div>
+					<div><button id="stand-button" onClick={stand}><h3>Stand</h3></button></div>
+					<div><button id="deal-button" onClick={playBlackjack}><h3>Deal New Hand</h3></button></div>
 				</div>
-
 
             <div className="outline dealer-cards-container">
 					<h3>Dealer Cards</h3>
 					<div className="dealer-card">
 						{dealersHand.map((deck) => (
-							<img key={deck.name} id={deck.name} src={deck.image} value={deck.value} className="playing=card"/>
-							// <p key={card.name}>{card.name}</p>
+							<img key={deck.name} 
+							id={deck.name} 
+							src={deck.image} 
+							value={deck.value} 
+							className="playing=card"/>
 						))}
-
 					</div>
 				</div>
 
@@ -596,7 +568,11 @@ const Blackjack = () => {
 					<h3>Player Cards</h3>
 					<div className="player-card" >
 						{usersHand.map((deck) => (
-							<img key={deck.name} id={deck.name} src={deck.image} value={deck.value} className="playing=card" />
+							<img key={deck.name} 
+							id={deck.name} 
+							src={deck.image} 
+							value={deck.value} 
+							className="playing=card" />
 							))}
 					</div>
 				</div>

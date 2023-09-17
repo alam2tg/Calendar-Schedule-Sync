@@ -101,6 +101,7 @@ player-cards-container {
   color: rgb(150,150,255);
   min-height: 325px; /*you can comment these out */
   min-width:400px; 
+  direction: row;
 }
 
 .score-container {
