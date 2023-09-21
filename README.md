@@ -14,7 +14,7 @@
 
 ## Description
 
-This application is a group calendar that shares visibility of every members' schedule. This enables users to create events for a team, and improve scheduling between users from the enhanced visibility.
+This application is built to teach a user how to play Blackjack (aka 21), as well as provide the user the "Count" of the deck when counting cards.
 
 <br>
 
